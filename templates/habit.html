@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InhabitU</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %} 
+    <h2> extention of base template</h2>
+
+
     {% for habit in habits %}<br>
         {{ habit.category_name }}<br>
         {{ habit.habit_name }}<br>
@@ -13,6 +10,5 @@
         {{ habit.habit_counter }}<br>
         {{ habit.due_date }}<br>
     {% endfor %}
+ {% endblock %}   
 
-</body>
-</html>
