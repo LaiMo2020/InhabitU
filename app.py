@@ -94,8 +94,13 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))    
-    return render_template("profile.html", username=username)
+    return redirect(url_for("login"))
+
+
+@app.route("/add_habit")
+def add_habit():
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_habit.html", categories=categories)
 
 
 if __name__ == "__main__":
