@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_habits")
 def get_habits():
-    habits = mongo.db.habits.find()
+    habits = list(mongo.db.habits.find())
     return render_template("habit.html", habits=habits)
 
 

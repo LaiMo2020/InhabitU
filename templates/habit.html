@@ -3,26 +3,24 @@
 
 
 
-    {% for habit in habits %}<br>
-        {{ habit.category_name }}<br>
-        {{ habit.habit_name }}<br>
-        {{ habit.habit_description }}<br>
-        {{ habit.habit_counter }}<br>
-        {{ habit.due_date }}<br>
-    {% endfor %}
+    
      <ul class="collapsible popout">
+         {% for habit in habits %}
     <li>
-      <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-expand"></i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+      <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <i class="fas fa-expand"></i>
+            <strong>{{ habit.habit_name }}</strong>  :  {{ habit.habit_counter }} : {{ habit.due_date }}
+            {% if habit.is_urgent == "on" %}
+             <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+                        data-position="right" data-tooltip="URGENT!"></i>
+            {% endif %}
+     </div>
+      <div class="collapsible-body">
+      <strong>{{ habit.category_name }}</strong>
+      <p>{{ habit.habit_description }}</p>
+      </div>
     </li>
-    <li>
-      <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-expand"></i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-expand"></i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
+    {% endfor %}
   </ul>
  {% endblock %}   
 
