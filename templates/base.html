@@ -23,7 +23,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_habits') }}">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="#">New Habit</a></li>
                 <li><a href="#">Manage Categories</a></li>
                 <li><a href="#">Log Out</a></li>
@@ -38,7 +38,7 @@
                 <li> <h4 class="center-align cyan lighten-3 text-darken-4">InhabitU</h4></li>
                 <li><a href="{{ url_for('get_habits') }}">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="#">New Habit</a></li>
                 <li><a href="#">Manage Categories</a></li>
                 <li><a href="#">Log Out</a></li>
