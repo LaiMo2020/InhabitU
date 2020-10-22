@@ -128,8 +128,8 @@ def edit_habit(habit_id):
     if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
         submit = {
-            "category_name": request.form.getlist("category_name"),
-            "habit_name": request.form.getlist("habit_name"),
+            "category_name": request.form.get("category_name"),
+            "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
             "is_urgent": is_urgent,
             "due_date": request.form.get("due_date"),
