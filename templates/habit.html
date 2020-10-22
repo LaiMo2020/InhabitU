@@ -2,22 +2,36 @@
 {% block content %} 
 
 
-
+     <h3 class="light-blue-text text-darken-4 center-align">All Habits</h3>
     
      <ul class="collapsible popout">
          {% for habit in habits %}
     <li>
       <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-            <i class="icon-collapse"></i>
-            <strong>{{ habit.habit_name }}</strong>  :  {{ habit.habit_counter }} : {{ habit.due_date }}
+          <div class="col s3">
+          <i class="fas fa-caret-down"></i>
+          {% if session.user|lower == habit.created_by|lower %}
+              <a href="{{ url_for('completed_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small">Completed</a>
+              <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="btn-floating btn-large cyan pulse">Edit</a>
+           
+         {% endif %}
+      </div>
+      <div class="col s9">
+           <strong>{{ habit.habit_name }}</strong>  : {{ habit.due_date }}
             {% if habit.is_urgent == "on" %}
              <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
                         data-position="right" data-tooltip="URGENT!"></i>
             {% endif %}
+      
+      </div>
+
+            
+       
      </div>
       <div class="collapsible-body">
       <strong>{{ habit.category_name }}</strong>
       <p>{{ habit.habit_description }}</p>
+      <p><em>by: {{ habit.created_by }}</em></p>
       </div>
     </li>
     {% endfor %}

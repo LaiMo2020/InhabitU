@@ -1,23 +1,21 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add New Habit</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit Habit</h3>
 
 <div class="row card-panel grey lighten-5">
-  <form class="col s12" method="POST" action="{{ url_for('add_habit') }}">
+  <form class="col s12" method="POST" action="{{ url_for('edit_habit', habit_id=habit._id) }}">
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-        <select
-          id="category_name"
-          name="category_name"
-          class="validate"
-          required
-        >
-          <option value="" disabled selected>Choose Category</option>
+        <select id="category_name" name="category_name" class="validate" required>
+          <option value="" disabled >Choose Category</option>
           {% for category in categories %}
-          <option value="{{ category.category_name }}"
-            >{{ category.category_name }}</option
-          >
+              {% if category.category_name == habit.category_name %}
+                  <option value="{{ category.category_name }}" selected> {{ category.category_name }}</option>
+              {% else %}
+                  <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+              {% endif %}
           {% endfor %}
         </select>
         <label for="category_name">Habit Category</label>
@@ -27,15 +25,8 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-        <input
-          id="habit_name"
-          name="habit_name"
-          minlength="3"
-          maxlength="50"
-          type="text"
-          class="validate"
-          required
-        />
+        <input id="habit_name" name="habit_name" minlength="3" maxlength="50" 
+        type="text" value="{{ habit.habit_name }}" class="validate" required/>
         <label for="habit_name">Habit Name</label>
       </div>
     </div>
@@ -43,14 +34,10 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-        <textarea
-          id="habit_description"
-          name="habit_description"
-          minlength="6"
-          maxlength="200"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
+        <textarea id="habit_description" name="habit_description" minlength="6" 
+            maxlength="200" class="materialize-textarea validate" required>
+            {{- habit.habit_description -}}
+            </textarea>
         <label for="habit_description">Habit Description</label>
       </div>
     </div>
@@ -58,13 +45,8 @@
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
-        <input
-          id="due_date"
-          name="due_date"
-          type="text"
-          class="datepicker validate"
-          required
-        />
+        <input id="due_date" name="due_date" type="text" value="{{ habit.due_date }}" 
+        class="datepicker validate" required/>
         <label for="due_date">Due Date</label>
       </div>
     </div>
@@ -87,7 +69,7 @@
     <div class="row">
       <div class="col s12 center-align">
         <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-          Add New Habit<i class="fas fa-plus-square right"></i>
+          Edit Habit <i class="fas fa-edit right"></i>
         </button>
       </div>
     </div>
