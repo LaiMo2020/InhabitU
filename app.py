@@ -108,8 +108,8 @@ def add_habit():
     if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
         habit = {
-            "category_name": request.form.getlist("category_name"),
-            "habit_name": request.form.getlist("habit_name"),
+            "category_name": request.form.get("category_name"),
+            "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
             "is_urgent": is_urgent,
             "due_date": request.form.get("due_date"),
@@ -135,10 +135,11 @@ def edit_habit(habit_id):
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
-        mongo.db.habits.update({"_id: ObjectId(habit_id)"}, submit)
+
+        mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
         flash("Habit Successfully Updated")
 
-    habit = mongo.db.habit.find_one({"_id": ObjectId(habit_id)})
+    habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_habit.html", habit=habit, categories=categories)
