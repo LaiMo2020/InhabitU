@@ -16,19 +16,20 @@
 
     <header>
         <!-- the top navbar -->
-        <nav class="nav-extended text-shadow 80deea cyan lighten-3">
+        <nav class="nav-extended text-shadow 424242 grey darken-3">
             <div class="nav-wrapper">
             <a href="{{ url_for('get_habits') }}" class="brand-logo">InhabitU</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_habits') }}">My Habits</a></li>
+                
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                   {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_habit') }}">Add New Habit</a></li>
-                        {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('add_habit') }}">Create New Habit</a></li>
+                        <li><a href="{{ url_for('get_habits') }}">My Habits</a></li>
+                        
                             <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
+                        
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -74,17 +75,7 @@
         {% endblock %}
     </main>
 
-    <footer class="page-footer">
-          <div class="container">
-          
-          </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © Laimo 2020
-           
-            </div>
-          </div>
-        </footer>
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

@@ -2,12 +2,12 @@
 {% block content %} 
 
 
-     <h3 class="light-blue-text text-darken-4 center-align">All Habits</h3>
+     <h3 class="amber-text text-darken-3  center-align">All Habits</h3>
     
      <ul class="collapsible popout">
          {% for habit in habits %}
     <li>
-      <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+      <div class="collapsible-header white-text grey-text text-darken-3 text-shadow">
           <div class="col s3">
           <i class="fas fa-caret-down"></i>
           {% if session.user|lower == habit.created_by|lower %}
@@ -19,7 +19,7 @@
       <div class="col s9">
            <strong>{{ habit.habit_name }}</strong>  : {{ habit.due_date }}
             {% if habit.is_urgent == "on" %}
-             <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
+             <i class="fas fa-exclamation-circle grey-text text-darken-3 tooltipped"
                         data-position="right" data-tooltip="URGENT!"></i>
             {% endif %}
       
