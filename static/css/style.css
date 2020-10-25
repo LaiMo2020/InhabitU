@@ -12,13 +12,15 @@
   margin: 5px;
   line-height: 42px;
 }
-
-#scale-demo {
-  position: fixed;
-  top: 75%;
-  left: 50%;
+img{
+    margin-top: 10%;
 }
-body {
+/* #scale-demo {
+  position: fixed !important;
+  top: 90%;
+  left: 47%;
+} */
+/* body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -26,7 +28,4 @@ body {
 
   main {
     flex: 1 0 auto;
-  }
-  footer .page_footer{
-      height: 100px;
-  }
+  } */
