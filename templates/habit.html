@@ -2,17 +2,26 @@
 {% block content %} 
 
 
-     <h3 class="amber-text text-darken-3  center-align">All Habits</h3>
-    
-     <ul class="collapsible popout">
+     <!-- <h3 class="amber-text text-darken-3  center-align">All Habits</h3> -->
+     <div class="row ">
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1562585398-fbf461aec9a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+          <span class="card-title">My Habits</span>
+        </div>
+        <div class="card-content">
+          <ul class="collapsible popout">
          {% for habit in habits %}
     <li>
-      <div class="collapsible-header white-text grey-text text-darken-3 text-shadow">
+      <div class="collapsible-header white-text grey-text text-darken-3 ">
           <div class="col s3">
           <i class="fas fa-caret-down"></i>
           {% if session.user|lower == habit.created_by|lower %}
-              <a href="{{ url_for('completed_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small">Completed</a>
-              <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="btn-floating btn-large cyan pulse">Edit</a>
+              <a href="{{ url_for('completed_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small">Delete</a>
+              <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+              <!-- <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="btn-floating btn-large cyan pulse">Edit</a> -->
+           
            
          {% endif %}
       </div>
@@ -36,5 +45,12 @@
     </li>
     {% endfor %}
   </ul>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+    
+     
  {% endblock %}   
 
