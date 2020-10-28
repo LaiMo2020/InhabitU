@@ -40,7 +40,3 @@
     }
   });
 
-// confirmation of deleting 
-
-
-   
