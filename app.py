@@ -17,12 +17,50 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+heart = {
+        "category_name": "Heart",
+        "habit_name": "Date your girlfriend ",
+        "habit_description": "To feed your heart with love, invite your girlfriend/wife for a lovely...",
+        "frequenc": "Monthly "
+    }
+brain = {
+        "category_name": "Brain",
+        "habit_name": "meditate ",
+        "habit_description": "Stay relax and meiditate daily",
+        "frequenc": "Daily "
+    }
+body = {
+        "category_name": "Body",
+        "habit_name": "meditate ",
+        "habit_description": "Stay relax and meiditate daily",
+        "frequenc": "Daily "
+    }
+mongo.db.categories.update_one(
+        {"_id": "5063114bd386d8fadbd6b004"},
+        {"$set": heart},
+        upsert=True
+    )
+mongo.db.categories.update_one(
+        {"_id": "5063114bd386d8fadbd6b005"},
+        {"$set": brain},
+        upsert=True
+    )
+mongo.db.categories.update_one(
+        {"_id": "5063114bd386d8fadbd6b006"},
+        {"$set": body},
+        upsert=True
+    )
+# ({"_id":"key1"}, {"$set": {"id":"key1"}}, upsert=True)
+# mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+
 
 @app.route("/")
-@app.route("/get_habits")
-def get_habits():
-    habits = list(mongo.db.habits.find())
+@app.route("/get_habits/<username>", methods=["GET"])
+def get_habits(username):
+    habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
+
+
 
 
 @app.route("/home")
@@ -63,13 +101,12 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+            if check_password_hash(existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -86,14 +123,15 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template(
+            "profile.html", username=username, categories=categories)
 
     return redirect(url_for("login"))
-
 
 @app.route("/logout")
 def logout():
@@ -103,35 +141,35 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_habit", methods=["GET", "POST"])
-def add_habit():
+@app.route("/create_habit", methods=["GET", "POST"])
+def create_habit():
     if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        prioritize = "on" if request.form.get("prioritize") else "off"
         habit = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "is_urgent": is_urgent,
+            "prioritize": True,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
         mongo.db.habits.insert_one(habit)
-        flash("Habit Successfully Added")
+        flash("Habit Successfully Created")
         return redirect(url_for("get_habits"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_habit.html", categories=categories)
+    return render_template("create_habit.html", categories=categories)
 
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
     if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        prioritize = "on" if request.form.get("prioritize") else "false"
         submit = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "is_urgent": is_urgent,
+            "prioritize": True,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
@@ -143,19 +181,15 @@ def edit_habit(habit_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_habit.html", habit=habit, categories=categories)
+    return redirect(url_for("get_habit"))
+    return redirect(url_for("profile"))
 
 
-@app.route("/completed_habit/<habit_id>")
-def completed_habit(habit_id):
-    mongo.db.habit.complet({"_id": ObjectId(habit_id)})
-    flash("habit Completed, Well Done")
+@app.route("/delete_habit/<habit_id>")
+def delete_habit(habit_id):
+    mongo.db.habits.remove({"_id": ObjectId(habit_id)})
+    flash("Habit Successfully Deleted")
     return redirect(url_for("get_habits"))
-
-
-@app.route("/get_categories")
-def get_categories():
-    categories = list(mongo.db.categories.find().sort("category_name", 1))
-    return render_template("categories.html", categories=categories)   
 
 
 if __name__ == "__main__":
