@@ -15,17 +15,8 @@
 img{
     margin-top: 10%;
 }
-/* #scale-demo {
+#scale-demo {
   position: fixed !important;
   top: 90%;
   left: 47%;
-} */
-/* body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  } */
+}
