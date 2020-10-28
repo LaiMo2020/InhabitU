@@ -1,3 +1,4 @@
+# Inspired some code were copied/edited from the mini project task manager
 import os
 from flask import (
     Flask, flash, render_template,
@@ -8,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
+# sugesstion habits for user
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -19,8 +20,8 @@ mongo = PyMongo(app)
 
 heart = {
         "category_name": "Heart",
-        "habit_name": "Date your girlfriend ",
-        "habit_description": "To feed your heart with love, invite your girlfriend/wife for a lovely...",
+        "habit_name": "Date your wife ",
+        "habit_description": " invite your wife for dinner.",
         "frequenc": "Monthly "
     }
 brain = {
@@ -50,22 +51,23 @@ mongo.db.categories.update_one(
         {"$set": body},
         upsert=True
     )
-# ({"_id":"key1"}, {"$set": {"id":"key1"}}, upsert=True)
-# mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
+
+# Route to habits page
 
 
 @app.route("/")
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+# Route to home page
+
+
 @app.route("/get_habits/<username>", methods=["GET"])
 def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
-
-
-
-
-@app.route("/home")
-def home():
-   return render_template("home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -101,7 +103,8 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get(
+                    "password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -118,6 +121,7 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+        
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -132,6 +136,7 @@ def profile(username):
             "profile.html", username=username, categories=categories)
 
     return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
@@ -182,7 +187,8 @@ def edit_habit(habit_id):
     return render_template(
         "edit_habit.html", habit=habit, categories=categories)
     return redirect(url_for("get_habit"))
-    return redirect(url_for("profile"))
+    return redirect(url_for("profile",
+                            habit_id=habit_id))
 
 
 @app.route("/delete_habit/<habit_id>")
@@ -196,4 +202,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
