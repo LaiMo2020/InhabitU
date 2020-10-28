@@ -4,7 +4,7 @@
 <h3 class=" amber-text text-darken-3 center-align">Create New Habit</h3>
 
 <div class="row card-panel grey lighten-5">
-  <form class="col s12" method="POST" action="{{ url_for('add_habit') }}">
+  <form class="col s12" method="POST" action="{{ url_for('create_habit') }}">
     <div class="row">
       <div class="input-field col s12">
         <i class="fas fa-folder-open prefix grey-text text-darken-3"></i>
@@ -53,15 +53,15 @@
         <label for="due_date">Due Date</label>
       </div>
     </div>
-    <!-- is urgent -->
+    <!--  prioritize habits -->
     <div class="row">
       <div class="input-field col s12">
         <div class="switch">
           <i class="fas fa-exclamation-circle prefix lgrey-text text-darken-3" ></i>
-          <label for="is_urgent">
-            <input type="checkbox" id="is_urgent" name="is_urgent" />
+          <label for="prioritize">
+            <input type="checkbox" id="prioritize" name="prioritize" />
             <span class="lever"></span>
-            Is Urgent
+            prioritize
           </label>
         </div>
       </div>
@@ -70,7 +70,7 @@
     <div class="row">
       <div class="col s12 center-align">
         <button type="submit" class="btn-large ff8f00 amber darken-3 text-shadow">
-          Add New Habit<i class="fas fa-plus-square right"></i>
+          Create New Habit<i class="fas fa-plus-square right"></i>
         </button>
       </div>
     </div>
