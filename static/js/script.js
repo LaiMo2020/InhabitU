@@ -5,7 +5,7 @@
     $('select').formSelect();
     $('.datepicker').datepicker({
         format: "dd mmmm, yyyy",
-        yearRang: 5,
+        yearRang: 2,
         showClearBtn: true,
         i18n: {
             done: "Select"
@@ -39,5 +39,8 @@
         });
     }
   });
+
+// confirmation of deleting 
+
 
    
