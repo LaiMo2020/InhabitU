@@ -1,92 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-   
-   <!-- <div class="col s12 m7">
-    <h4> TO stay healthy take care of your 3 hjsd. hsdjfb jbsdjfhjs jksbdf kjbsdf ksfd s</h4>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1507539989371-99615e449486?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-       
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m7">
-    <h2 class="header">Horizontal Card</h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1507539989371-99615e449486?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-       
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m7">
-    <h2 class="header">Horizontal Card</h2>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1507539989371-99615e449486?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-       
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-   <div class="row">
-    <div class="col s12 m12">
-      <div class="card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-          
-          
-        </div>
-        <div class="card-content center-align">
-          <p> <h4> Become the better version of yourself! </h4><br>
-         <strong> To be centered and follow a healthy lifestyle it is importan to focus equally on our heart, which means social contacts, 
-          on our body and physical health, as well as on our brain that keeps us centered. InhabitU helps you to create every-day habits for each part 
-          and keeping them in balance.</strong><br>
-        <h4 >Lets inhabitU</h4> </p>
-           
-      <i id="heart " class=" col s3 fas fa-heartbeat medium amber-text text-darken-1" ></i>
-      <i class=" fas fa-brain medium amber-text text-darken-2"></i>
-      <i class="col s6 fas fa-running medium amber-text text-darken-3"></i>
-        </div>
-     
 
-      </div>
-    </div>
-  </div>
-  
 
- <div class="row">
-                    <!-- users cant go to login while he is in session -->
-                    {% if not session.user  %}
-                     <a href="{{ url_for('register') }}" class="grey-text text-darken-3"><button type="submit" class="col s12 btn-large 424242 grey darken-3 text-shadow"> Register <i class="fas fa-sign-in-alt"></i></button></a>  
-                        
-                  
-                </div>
-                <div class="row">
-                  <a href="{{ url_for('login') }}" class="grey-text text-darken-3">  <button type="submit" class="col s12 btn-large 424242 grey darken-3 text-shadow"> Log In <i class="fas fa-sign-in-alt"></i></button></a>
-                        
-                   
-                </div>
-                {% endif %}
-                {% endblock %}
+<div class="row">
+	<div class="col s12 m12">
+		<div class="card">
+			<div class="card-image">
+				<img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Feel good">
+
+
+        </div>
+				<div class="card-content center-align">
+					<p>
+						<h4> Become the better version of yourself! </h4><br>
+						<h6> To be centered and follow a healthy lifestyle it is importan to focus equally on our heart,
+							which means social contacts,
+							on our body and physical health, as well as on our brain that keeps us centered. InhabitU
+							helps you to create every-day habits for each part
+							and keeping them in balance.</h6><br>
+						<h4>Lets inhabitU</h4>
+					</p>
+
+					<i  class=" col s3 fas fa-heartbeat medium amber-text text-darken-1" ></i>
+					<i class=" fas fa-brain medium amber-text text-darken-2"></i>
+					<i class="col s6 fas fa-running medium amber-text text-darken-3"></i>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<!-- users cant go to login while he is in session -->
+		{% if not session.user  %}
+		<a href="{{ url_for('register') }}"
+			class="grey-text text-darken-3"><span><button type="submit" class="col s12 btn-large 424242 grey darken-3 text-shadow"> Register <i class="fas fa-sign-in-alt"></i></button></span></a>
+
+
+	</div>
+	<div class="row">
+		<a href="{{ url_for('login') }}" class="grey-text text-darken-3">
+			<button type="submit" class="col s12 btn-large 424242 grey darken-3 text-shadow"> Log In <i class="fas fa-sign-in-alt"></i></button></a>
+
+
+	</div>
+	{% endif %}
+	{% endblock %}

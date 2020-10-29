@@ -1,72 +1,50 @@
 {% extends "base.html" %}
-{% block content %} 
+{% block content %}
 
 
-     <!-- <h3 class="amber-text text-darken-3  center-align">All Habits</h3> -->
-     <div class="row ">
-    <div class="col s12 m12">
-      <div class="card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1562585398-fbf461aec9a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-          <span class="card-title">Habits</span>
-        </div>
-        <div class="card-content">
-          <ul class="collapsible popout">
-         {% for habit in habits %}
-    <li>
-      <div class="collapsible-header white-text grey-text text-darken-3 ">
-          <div class="col s3">
-          <i class="fas fa-caret-down"></i>
-          {% if session.user|lower == habit.created_by|lower %}
-              <!-- <a href="{{ url_for('delete_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small" id="delete_url">Delete</a> -->
-              <label for="habit_id"   name="habit_id"  id="habit_id" > {{ habit._id }}</label>
-              <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="waves-effect waves-light btn-small">Edit</a>
-              <button onclick=confirm_delete {{ url_for('edit_habit', habit_id=habit._id)  }}>Delete</button>
-              <!-- <a href="{{ url_for('edit_habit', habit_id=habit._id) }}" class="btn-floating btn-large cyan pulse">Edit</a> -->
-           
-           
-         {% endif %}
-      </div>
-      <div class="col s9">
-           <strong>{{ habit.habit_name }}</strong>  : {{ habit.due_date }}
-            {% if habit.is_urgent == "on" %}
-             <i class="fas fa-exclamation-circle grey-text text-darken-3 tooltipped"
-                        data-position="right" data-tooltip="URGENT!"></i>
-            {% endif %}
-      
-      </div>
+<!-- <h3 class="amber-text text-darken-3  center-align">All Habits</h3> -->
+<div class="row ">
+	<div class="col s12 m12">
+		<div class="card">
+			<div class="card-image">
+				<img src="https://images.unsplash.com/photo-1562585398-fbf461aec9a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+				<span class="card-title">Habits</span>
+			</div>
+			<div class="card-content">
+				<ul class="collapsible popout">
+					{% for habit in habits %}
 
-            
-       
-     </div>
-      <div class="collapsible-body">
-      <strong>{{ habit.category_name }}</strong>
-      <p>{{ habit.habit_description }}</p>
-      <p><em>by: {{ habit.created_by }}</em></p>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-    <script>
-const deleteUrl = document.getElementById("habit_id")
-const url = window.location.pathname + deleteUrl
-console.log(deleteUrl.textContent)
+					<li>
+						<div class="collapsible-header white-text grey-text text-darken-3 ">
+							<div class="col s3">
+								<i class="fas fa-caret-down"></i>
+								{% if session.user|lower == habit.created_by|lower %}
+								<a href="{{ url_for('delete_habit', habit_id=habit._id) }}"
+									class="waves-effect waves-light btn-small" id="delete_url">Delete</a>
 
-function confirm_delete(  ){
-    console.log("hello")
- let delete_confirmed = confirm("Delete this habit?")
- if (delete_confirmed){
-      window.location.path = url;
-  }
-}
-    
-    
-    </script>
-    
- {% endblock %}   
+								<a href="{{ url_for('edit_habit', habit_id=habit._id) }}"
+									class="waves-effect waves-light btn-small">Edit</a>
+								<!-- <div class="habit-buttons">
+                        <a href="{{url_for('edit_habit', habit_id=habit._id)}}" class="btn btn-success">Edit Habit</a>
+                        <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete Habit</button>
+                       
+                    </div> -->
+								<a href="{{ url_for('edit_habit', habit_id=habit._id) }}"
+									class="btn-floating btn-large ">Edit</a> -->
+								<a href="{{url_for('home')}}" class="btn btn-success">Home</a>
 
+
+								{% endif %}
+
+							</div>
+							<div class="col s9">
+								<strong>{{ habit.habit_name }}</strong> : {{ habit.due_date }}
+								{% if habit.prioritize == "on" %}
+								<i class="fas fa-exclamation-circle grey-text text-darken-3 tooltipped"
+                                    data-position="right" data-tooltip="URGENT!"></i>
+								{% endif %}
+							</div>
+
+							{% endfor %}
+
+							{% endblock %}
