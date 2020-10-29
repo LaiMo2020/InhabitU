@@ -1,4 +1,4 @@
-# Inspired some code were copied/edited from the mini project task manager
+# Inspired some code were copied/edited the mini project task manager
 import os
 from flask import (
     Flask, flash, render_template,
@@ -63,8 +63,7 @@ def home():
 
 # Route to home page
 
-
-@app.route("/get_habits/<username>", methods=["GET"])
+@app.route("/get_habits/<username>")
 def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
@@ -103,8 +102,7 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get(
-                    "password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -121,7 +119,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-        
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -145,6 +142,8 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+# Create habit
+
 
 @app.route("/create_habit", methods=["GET", "POST"])
 def create_habit():
@@ -160,10 +159,12 @@ def create_habit():
         }
         mongo.db.habits.insert_one(habit)
         flash("Habit Successfully Created")
-        return redirect(url_for("get_habits"))
+        return redirect(url_for("get_habits", username=session["user"]))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("create_habit.html", categories=categories)
+
+# edit a habit
 
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
@@ -189,6 +190,8 @@ def edit_habit(habit_id):
     return redirect(url_for("get_habit"))
     return redirect(url_for("profile",
                             habit_id=habit_id))
+
+# delete habit
 
 
 @app.route("/delete_habit/<habit_id>")
