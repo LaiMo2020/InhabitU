@@ -63,7 +63,7 @@ def home():
 
 # Route to home page
 
-@app.route("/get_habits/<username>")
+@app.route("/get_habits/<username>", methods=["GET"])
 def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
