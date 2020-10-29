@@ -12,28 +12,24 @@
 			</div>
 			<div class="card-content">
 				<ul class="collapsible popout">
-					{% for habit in habits %}
 
+					{% for habit in habits %}
 					<li>
 						<div class="collapsible-header white-text grey-text text-darken-3 ">
 							<div class="col s3">
 								<i class="fas fa-caret-down"></i>
-								{% if session.user|lower == habit.created_by|lower %}
+								{% if session.user|lower == habit.created_by|lower %} 
 								<a href="{{ url_for('delete_habit', habit_id=habit._id) }}"
 									class="waves-effect waves-light btn-small" id="delete_url">Delete</a>
 
 								<a href="{{ url_for('edit_habit', habit_id=habit._id) }}"
-									class="waves-effect waves-light btn-small">Edit</a>
-								<!-- <div class="habit-buttons">
-                        <a href="{{url_for('edit_habit', habit_id=habit._id)}}" class="btn btn-success">Edit Habit</a>
-                        <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete Habit</button>
-                       
-                    </div> -->
+									class="waves-effect waves-light btn-small">Edit</a> 
+
 								<a href="{{ url_for('edit_habit', habit_id=habit._id) }}"
-									class="btn-floating btn-large ">Edit</a> -->
+									class="btn-floating btn-large ">Edit</a> 
 								<a href="{{url_for('home')}}" class="btn btn-success">Home</a>
 
-
+                              <button type="button" class="btn btn-danger" onclick="confirm_del()">Delete Recipe</button>
 								{% endif %}
 
 							</div>
@@ -46,5 +42,28 @@
 							</div>
 
 							{% endfor %}
+						</div>
+					</li>
+				</ul>
 
-							{% endblock %}
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	console.log(  window.location.href="{{url_for('delete_habit', habit_id=habits._id)}}");
+        function confirm_del(){
+        let confirmation = confirm("Are you sure you want to delete this habit?")
+        if (confirmation == true){
+            window.location.href= {"{url_for('delete_habit'}}";
+            alert(" The habit has successfully been deleted.");
+        }
+        else {
+            alert("The habit has not been deleted.");
+        }
+    }
+</script>
+
+
+{% endblock %}
