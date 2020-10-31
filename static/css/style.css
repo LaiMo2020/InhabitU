@@ -20,3 +20,24 @@ img{
   top: 90%;
   left: 47%;
 }
+div #forbiden{
+    margin-top: 50% !important;
+  display: flex;
+  justify-content: center;
+}
+#delete-habit{
+    display: block;
+}
+#confirm_habit{
+    display:none;   
+}
+@media only screen and (max-width: 460px)
+#icons-size{
+    font-size:100px;
+}
+#delete-habit{
+    display: block;
+}
+#confirm-delete{
+    display:none;   
+}

@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+# suggestion for users
 heart = {
         "category_name": "Heart",
         "habit_name": "Date your wife ",
@@ -67,24 +68,37 @@ def home():
 def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
-
+    habits = {
+            "category_name": request.form.get("category_name"),
+            "habit_name": request.form.get("habit_name"),
+            "habit_description": request.form.get("habit_description"),
+            "prioritize": True,
+            "due_date": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+ 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"email": request.form.get("email")})
 
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(register)
+        password = request.form.get("password")
+        confirmpassword = request.form.get("confirmpassword")
+
+        if password == confirmpassword:
+            register = {
+                "username": request.form.get("username").lower(),
+                "email": request.form.get("email"),
+                "password": generate_password_hash(password)
+                }
+            mongo.db.users.insert_one(register)
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
@@ -97,13 +111,13 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_email = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
 
-        if existing_user:
+        if existing_email:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+            if check_password_hash(existing_email["password"], request.form.get("password")):
+                session["user"] = request.form.get("username")
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
@@ -149,7 +163,7 @@ def logout():
 def create_habit():
     if request.method == "POST":
         prioritize = "on" if request.form.get("prioritize") else "off"
-        habit = {
+        habits = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
@@ -157,7 +171,7 @@ def create_habit():
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
-        mongo.db.habits.insert_one(habit)
+        mongo.db.habits.insert_one(habits)
         flash("Habit Successfully Created")
         return redirect(url_for("get_habits", username=session["user"]))
 
@@ -170,7 +184,7 @@ def create_habit():
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
     if request.method == "POST":
-        prioritize = "on" if request.form.get("prioritize") else "false"
+        prioritize = "True" if request.form.get("prioritize") else "False"
         submit = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
@@ -182,14 +196,12 @@ def edit_habit(habit_id):
 
         mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
         flash("Habit Successfully Updated")
+        return redirect(url_for("get_habits", username=session["user"]))
 
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_habit.html", habit=habit, categories=categories)
-    return redirect(url_for("get_habit"))
-    return redirect(url_for("profile",
-                            habit_id=habit_id))
 
 # delete habit
 
@@ -198,7 +210,7 @@ def edit_habit(habit_id):
 def delete_habit(habit_id):
     mongo.db.habits.remove({"_id": ObjectId(habit_id)})
     flash("Habit Successfully Deleted")
-    return redirect(url_for("get_habits"))
+    return redirect(url_for("get_habits", username=session["user"]))
 
 
 if __name__ == "__main__":
