@@ -31,13 +31,7 @@ div #forbiden{
 #confirm_habit{
     display:none;   
 }
-@media only screen and (max-width: 460px)
-#icons-size{
-    font-size:100px;
-}
-#delete-habit{
-    display: block;
-}
-#confirm-delete{
-    display:none;   
-}
+
+ 
+
+    
