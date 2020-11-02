@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-# sugesstion habits for user
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -54,7 +54,7 @@ mongo.db.categories.update_one(
         upsert=True
     )
 
-# Route to habits page
+# Route to home page
 
 
 @app.route("/")
@@ -63,7 +63,7 @@ def home():
     return render_template("home.html")
 
 
-# Route to home page
+# Route to habits page
 
 @app.route("/get_habits/<username>", methods=["GET"])
 def get_habits(username):
