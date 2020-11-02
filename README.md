@@ -1,53 +1,69 @@
-## InhabitU is a tool, to help users to keep thier good habits up and reduce the bad one.
+# Milestone Project 3: InhabitU 
 
-InhabitU
-One or two paragraphs providing an overview of your project.
-Essentially, this part is your sales pitch.
-InhabitU is an application to facilitate and keep track on a balanced lifestyle. Options to create, edit and keep track on frequent habits in the three categories “Heart”, “Body” and “Brain” make it easy to stay motivated and keep an overview over how well we balance and spend time in the three categories.
-UX
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-As a user type, I want to perform an action, so that I can achieve a goal.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
-The application is made for everyone that feels it hard sometimes to bring the three main categories that define our physical and mental well-being in balance. In a rushed everyday life, it can be hard to equally set out time on staying fit and healthy (“Body”), spending time with friends and family and (“Heart”) as well as being focused and centered in our mind (“Brain”). Defining and following habits can help to achieve a balance, stay motivated and not forget of one of the categories. InhabitU enables the user to achieve this balance through a habit-based approach. It provides options to create habits for each three categories, edit them according to changing circumstances and keep track in a personal profile and overview. Pre-defined habits help to be inspired and get going. 
+![https://github.com/LaiMo2020/InhabitU/blob/master/static/images/presentation-page.png](static/images/presentation-page.png)
+## InhabitU
+#### InhabitU is an application to facilitate and keep track on a balanced lifestyle. Options to create, edit and keep track on frequent habits in the three categories “Heart”, “Body” and “Brain” make it easy to stay motivated and keep an overview over how well we balance and spend time in the three categories.
 
-User stories
-As a user I want to create and edit a personal profile, so that I can store and return to my created habit-lists and overviews
 
-InhabitU enables the user by providing an option to register in the page and create a personal profile
+## UX
+#### The application is made for everyone that feels it hard sometimes to bring the three main categories that define our physical and mental well-being in balance. In a rushed everyday life, it can be hard to equally set out time on staying fit and healthy (“Body”), spending time with friends and family (“Heart”) as well as being focused and centred in our mind (“Brain”). Defining and following habits can help to achieve a balance, stay motivated and not forget of one of the categories. InhabitU enables the user to achieve this balance through a habit-based approach. It provides options to create habits for each three categories, edit them according to changing circumstances and keep track in a personal profile and overview.
 
-As a user I want to create new habits, so that I can be more active in a certain category of my life-balance
+### Wireframes
+#### For the creation of my wireframes I used the Balsamiqu program (see “technologies used). Throughout the development of the webpage the wireframes were very helpful for me to reach the final design.
+#### I have created mobile wireframes and desktop wireframes.
 
-InhabitU enables the user in his/her profile with an option to create new habits, linked to the three categories “heart, brain and body” and add them to a personal list of active habits
 
-As a user I want to define new habits by name and description, so that I can easily remember and return to their purpose
+1. Desktop Wireframes
 
-In the “create a new habit” dialogue the user can give it a name and longer description
+  - [Home-page](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.home%20copy.png)
+  - [LogIn](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.login%20.png)
 
-As a user I want to define a frequency for each habit, so that I can stay motivated and get a regularity in my daily life 
+  - [Register](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.register.png)
+ - [Create Habit](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.create.png)
 
-In the “create a new habit” dialogue the user can define a frequency for the habit
 
-As a user I want to mark certain habits as prioritised, so that I can be remembered on what is important just now 
 
-In the “create a new habit” dialogue the user can set “prioritize” to the habit he or she creates
+2. Mobile Wireframes 
 
-As a user I want to edit a habit, so I can adapt it to new circumstances in my life
+  - [Home-page](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.home.png)
+  - [LogIn](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.login.png)
 
-InhabitU enables the user in the “my habits” overview with an option to edit existing habits
+  - [Register](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.register.png)
+ - [Create Habit](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.create%20copy.png)
 
-As a user I want to delete a habit, so I can get more time to spend on another habit or category
+## User stories
+- As a user I want to create and edit a personal profile, so that I can store and return to my created habit-lists.
 
-InhabitU enables the user in the “my habits” overview with an option to delete existing habits
+  InhabitU enables the user by providing an option to register in the page and create a personal profile
 
-As a user I want to chose from pre-defined habits, so I can be inspired to focus equally on heart, body and brain
+- As a user I want to create new habits, so that I can be more active in a certain category of my life-balance
 
-InhabitU provides the user with predefined habits to choose from and add to “my habits”
+  InhabitU enables the user in his/her profile with an option to create new habits, linked to the three categories “heart, brain and body” and add them to a personal list of active habits
 
-As a user I want to edit pre-defined habits, so I can perfectly match them to my personal circumstances
+- As a user I want to define new habits by name and description, so that I can easily remember and return to their purpose
 
-InhabitU has an option to edit predefined habits before adding them to “my habits”
+  In the “create a new habit” dialogue the user can give it a name and longer description
+
+- As a user I want to define a start-day for each habit, so that I can stay motivated and get a regularity in my daily life 
+
+In the “create a new habit” dialogue the user can define a start-day for the habit
+
+- As a user I want to mark certain habits as prioritised, so that I can be remembered on what is important just now 
+
+  In the “create a new habit” dialogue the user can set “prioritize” to the habit he or she creates
+
+- As a user I want to edit a habit, so I can adapt it to new circumstances in my life
+
+  InhabitU enables the user in the “my habits” overview with an option to edit existing habits
+
+- As a user I want to delete a habit, so I can get more time to spend on another habit or category
+
+ InhabitU enables the user in the “my habits” overview with an option to delete existing habits
+
+
+
+
 
 As a user I want to easily see which category my habits belong to, so that I can understand their purpose and focus-point
 
