@@ -5,6 +5,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from json import dumps
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -76,7 +77,7 @@ def get_habits(username):
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
- 
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -91,14 +92,17 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "password_confirm": generate_password_hash(request.form.get(
+                "confirm"))
         }
-        mongo.db.users.insert_one(register)
+        dumps(register)
+        if request.form.get("passowrd") == request.form.get("confirm"):
+            mongo.db.users.insert_one(register)
 
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+            # put the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
     return render_template("register.html")
 
 
@@ -106,12 +110,12 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_email = mongo.db.users.find_one(
+        existing_username = mongo.db.users.find_one(
             {"username": request.form.get("username")})
 
-        if existing_email:
+        if existing_username:
             # ensure hashed password matches user input
-            if check_password_hash(existing_email["password"], request.form.get("password")):
+            if check_password_hash(existing_username["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -130,7 +134,7 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
+@app.route("/home/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
     categories = list(mongo.db.categories.find().sort("category_name", 1))
@@ -139,7 +143,7 @@ def profile(username):
 
     if session["user"]:
         return render_template(
-            "profile.html", username=username, categories=categories)
+            "home.html", username=username, categories=categories)
 
     return redirect(url_for("login"))
 
@@ -188,7 +192,7 @@ def edit_habit(habit_id):
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
-
+        # edit and send user to habits page
         mongo.db.habits.update({"_id": ObjectId(habit_id)}, submit)
         flash("Habit Successfully Updated")
         return redirect(url_for("get_habits", username=session["user"]))

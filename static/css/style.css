@@ -25,12 +25,6 @@ div #forbiden{
   display: flex;
   justify-content: center;
 }
-#delete-habit{
-    display: block;
-}
-#confirm_habit{
-    display:none;   
-}
 
  
 
