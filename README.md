@@ -141,14 +141,14 @@ If this section grows too long, you may want to split it off into a separate fil
 
 1. I have tested the webpage myself in the following browsers and devices:
 - Google Chrome
-- Firefox
+
 - Safari
 - Iphone XR
 - MacBook Air
 
 2. I have sent the webpage to family and friends who tested the page and responsiveness on following browser and devices:
 - Google Chrome
-- Firefox
+
 - Safari
 - iPad
 - iPhone SE
@@ -176,10 +176,23 @@ to check my CSS code.
 - [Jshint](https://jshint.com/)
 to check my JS code.
 - [PEP8](http://pep8online.com/)
-Deployment
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-Different values for environment variables (Heroku Config Vars)?
+## Deployment
+#### I have made the follwoing steps to deploye my app: 
+
+- Creating a new databas in mongoDB
+- Creating a new repo in GitHub “InhabitU”
+- Opening the repo in gitpod  and create my flask app
+- Create .gitignoe to stor the file I don’t want to push and make it public
+- Creating env.py to stor the festive data such as secret keys
+- Creating requirements.tex so gitpod knows how and what application I’m doing 
+- Create Profile
+- Install flask on gitpod
+- Deploy my app inhabitU to Heroku
+- Connect flask to mongoDB
+- install flask-pymongo and dnspython
+
+
+#### [Also I have craeted the follwoing Heroku Config Vars](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/heroku-config-vars.png)
 Different configuration files?
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
