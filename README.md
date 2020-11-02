@@ -47,7 +47,7 @@
 
 - As a user I want to define a start-day for each habit, so that I can stay motivated and get a regularity in my daily life 
 
-In the “create a new habit” dialogue the user can define a start-day for the habit
+  In the “create a new habit” dialogue the user can define a start-day for the habit
 
 - As a user I want to mark certain habits as prioritised, so that I can be remembered on what is important just now 
 
@@ -62,16 +62,6 @@ In the “create a new habit” dialogue the user can define a start-day for the
  InhabitU enables the user in the “my habits” overview with an option to delete existing habits
 
 
-
-
-
-As a user I want to easily see which category my habits belong to, so that I can understand their purpose and focus-point
-
-Habits in the users overview “my habits” appear in different colors and show an icon, according to their category
-
-As a user I want to see in a simple diagram how many habits I actively follow in each category, so that I can keep track if I have a balance in my lifestyle
-
-Under “my profile” inhabitU provides the user with a diagram that visualizes how many singular habits he or she actively has in his or her list 
 
 Color theme
 In order to make it easy for users to keep track on the three categories and linked habits the application design is based on a color-coding system, supported by icons that visualize each category. 
@@ -144,6 +134,48 @@ In addition, you should mention in this section how your project looks and works
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
+
+## Testing 
+
+### Testing and review of the webpage
+
+1. I have tested the webpage myself in the following browsers and devices:
+- Google Chrome
+- Firefox
+- Safari
+- Iphone XR
+- MacBook Air
+
+2. I have sent the webpage to family and friends who tested the page and responsiveness on following browser and devices:
+- Google Chrome
+- Firefox
+- Safari
+- iPad
+- iPhone SE
+
+### Validation of the code/ Screenshoot 
+
+- [vlaidator/screnshoot/Craete-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/create-html.png)
+- [vlaidator/screnshoot/Edit-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/edit-html.png)
+- [vlaidator/screnshoot/Login-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/login-html.png)
+- [vlaidator/screnshoot/Register-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/register-html.png)
+- [vlaidator/screnshoot/Home-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/home-html.png)
+
+- [vlaidator/screnshoot/CSS](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/CSS-vlaidation.png)
+- [vlaidator/screnshoot/JS](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/JS%20validation.png)
+- [vlaidator/screnshoot/PYTHON](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/python%20validation-%20pep8.png)
+
+
+- [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
+to visualise/edit my code live.
+- [W3C/HTML](https://validator.w3.org/)
+to check my  HTML code.
+
+- [W3C/CSS](https://jigsaw.w3.org/css-validator/)
+to check my CSS code.
+- [Jshint](https://jshint.com/)
+to check my JS code.
+- [PEP8](http://pep8online.com/)
 Deployment
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
