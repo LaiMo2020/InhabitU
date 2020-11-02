@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+<!-- presntation photo to start the page -->
 <div class="row">
 	<div class="col s12 m12">
 		<div class="card">
@@ -10,6 +10,7 @@
 
 
         </div>
+				<!-- motivationg message -->
 				<div class="card-content center-align">
 					<p>
 						<h4> Become the better version of yourself! </h4><br>
@@ -19,13 +20,13 @@
 							helps you to create every-day habits for each part
 							and keeping them in balance.</h6><br>
 						<h4>Lets inhabitU</h4>
-                        <h5>Do you need some inspirations, scroll down <i class="fas fa-scroll"></i> </h5>
+						<h5>Do you need some inspirations, scroll down <i class="fas fa-scroll"></i> </h5>
 					</p><br>
-                    <div id="icons-size">
-					<i  class=" col s3 fas fa-heartbeat small amber-text text-darken-1" ></i>
-					<i class=" fas fa-brain small amber-text text-darken-2"></i>
-					<i class="col s6 fas fa-running small amber-text text-darken-3"></i>
-                    </div>
+					<div id="icons-size">
+						<i  class=" col s3 fas fa-heartbeat small amber-text text-darken-1" ></i>
+						<i class=" fas fa-brain small amber-text text-darken-2"></i>
+						<i class="col s6 fas fa-running small amber-text text-darken-3"></i>
+					</div>
 				</div>
 
 
@@ -48,20 +49,22 @@
 
 
 	</div>
-    {% else  %}
-      <a id="scale-demo" href="{{ url_for('create_habit') }}" class="center-align btn-floating btn-large scale-transition 424242 grey darken-3">
-    <i class="fas fa-plus"></i>
-    </a>
-	
+	{% else  %}
+	<a id="scale-demo" href="{{ url_for('create_habit') }}"
+		class="center-align btn-floating btn-large scale-transition 424242 grey darken-3">
+		<i class="fas fa-plus"></i>
+	</a>
 
 
-{% endif %}
-<div class="input-field col s12 ff8f00 amber darken-3 ">
+
+	{% endif %}
+	<!-- display some predefined categories -->
+	<div class="input-field col s12 ff8f00 amber darken-3 ">
 
 
-	{% for category in categories  %}
-    <div class="input-field col s12 ff8f00 amber darken-3 ">
-	<select>
+		{% for category in categories  %}
+		<div class="input-field col s12 ff8f00 amber darken-3 ">
+			<select>
 
       <option value="" selected="true" disabled="disabled">{{ category.category_name }} </option>
     
@@ -71,24 +74,25 @@
       
       
     </select>
-        <a id="scaledemo" href="{{ url_for('create_habit') }}" class="center-align btn-floating btn-large scale-transition 424242 grey darken-3">
-    <i class="fas fa-plus"></i>
-    </a>
-	{% endfor %}
+			<a id="scaledemo" href="{{ url_for('create_habit') }}"
+				class="center-align btn-floating btn-large scale-transition 424242 grey darken-3">
+				<i class="fas fa-plus"></i>
+			</a>
+			{% endfor %}
 
-<div class="row">
-	<div class="col s12 m12">
-		<div class="card">
-			
-		</div>
-	</div>
-</div>
+			<div class="row">
+				<div class="col s12 m12">
+					<div class="card">
+
+					</div>
+				</div>
+			</div>
 
 
-	{% for category in categories  %}
-   
-	<select>
-	
+			{% for category in categories  %}
+			<!-- display some predefined categories -->
+			<select>
+
 
       <option value="" selected="true" disabled="disabled">{{ category.category_name }} </option>
   
@@ -97,8 +101,8 @@
       <option value="">{{ category.habit_name }}</option>
       
       
-    </select>
-	{% endfor %}
+          </select>
+			{% endfor %}
 
 
 
@@ -108,4 +112,4 @@
 
 
 
-	{% endblock %}
+			{% endblock %}
