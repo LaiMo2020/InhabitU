@@ -7,10 +7,12 @@
 
 
 ## UX
-#### The application is made for everyone that feels it hard sometimes to bring the three main categories that define our physical and mental well-being in balance. In a rushed everyday life, it can be hard to equally set out time on staying fit and healthy (“Body”), spending time with friends and family (“Heart”) as well as being focused and centred in our mind (“Brain”). Defining and following habits can help to achieve a balance, stay motivated and not forget of one of the categories. InhabitU enables the user to achieve this balance through a habit-based approach. It provides options to create habits for each three categories, edit them according to changing circumstances and keep track in a personal profile and overview.
+#### The application is made for everyone that feels it hard sometimes to bring the three main categories that define our physical and mental well-being in balance. 
+#### In a rushed everyday life, it can be hard to equally set out time on staying fit and healthy (“Body”), spending time with friends and family (“Heart”) as well as being focused and centred in our mind (“Brain”). 
+#### Defining and following habits can help to achieve a balance, stay motivated and not forget of one of the categories. InhabitU enables the user to achieve this balance through a habit-based approach. It provides options to create habits for each three categories, edit them according to changing circumstances and keep track in an overview.
 
 ### Wireframes
-#### For the creation of my wireframes I used the Balsamiqu program (see “technologies used). Throughout the development of the webpage the wireframes were very helpful for me to reach the final design.
+#### For the creation of my wireframes I used the Balsamiqu program (see “technologies used"). Throughout the development of the webpage the wireframes were very helpful for me to reach the final design.
 #### I have created mobile wireframes and desktop wireframes.
 
 
@@ -33,7 +35,7 @@
  - [Create Habit](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.create%20copy.png)
 
 ## User stories
-- As a user I want to create and edit a personal profile, so that I can store and return to my created habit-lists.
+- As a user I want to create and edit an overview of my habits, so that I can store and return to my created habit-lists.
 
   InhabitU enables the user by providing an option to register in the page and create a personal profile
 
@@ -55,57 +57,39 @@
 
 - As a user I want to edit a habit, so I can adapt it to new circumstances in my life
 
-  InhabitU enables the user in the “my habits” overview with an option to edit existing habits
+  InhabitU enables the user in the “habits” overview with an option to edit existing habits
 
 - As a user I want to delete a habit, so I can get more time to spend on another habit or category
 
- InhabitU enables the user in the “my habits” overview with an option to delete existing habits
+ InhabitU enables the user in the “habits” overview with an option to delete existing habits
 
 
 
-Color theme
-In order to make it easy for users to keep track on the three categories and linked habits the application design is based on a color-coding system, supported by icons that visualize each category. 
-The overall color theme of the menu is kept in a simple and calm background color, giving space to the three categories, which are the main content and focus point for the user:
-The heart category and all linked habits are designed in red, a warm color, which is commonly referred to love, and relationship related topics
-The body category and all linked habits are designed in blue, a colder and dynamic color, which inspires the user to physical activities and more movement
-The brain category and all linked habits are designed in green, a color that stays for growth and positivity. It inspires the user to stay focused, grow new lifestyles and be motiviated
-Wireframes
 
-Features
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
 
-Existing Features
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+## Features
 
-Features Left to Implement
-Another feature idea
 
 
 Header– without being logged in
 The section “Home” in the header allows user that are not logged in to get information on a balanced lifestyle. To get started they can choose from options to “log in” or “register” 
-“Log in” allows the user to log in to their profile by filling in their e-mail address and password. 
+“Log in” allows the user to log in to their profile by filling in their username and password. 
 Pushing “register account “ at the bottom of the log-in dialogue allows the user to reach the “register” dialogue
 “Register” allows the user to register a new account by filling in a user name, their e-mail address and define a password. 
 
 Header– as a logged in user
 Home
-The “+” button allows the user to create a new habit
-
-Profile
-The profile enables the user to add a predefined habit to their list by choosing from one of the options in the categories
-The profile enables the user to add a new custom habit to their list by pushing the “+” button
+The “+” button allows the user to create a new habit Icons referring to the three categories enable the user to switch between predefined habits in the three categories by clicking on the icons
+Predefined habits in all three categories enable the user to add them to their listby…  
+An edit dialogue for predefined habits enables the user to edit the habit before adding it to their list by customizing the fields in the dialogue
 
 Create a new habit
-The dialogue enables the user to create a custom habit by choosing categorie, filling in name, description and frequency and choosing if it is prioritized or not.
+The dialogue enables the user to create a custom habit by choosing categories, filling in name, description and start date and choosing if it is prioritized or not.
 The “add new habit” button enables the user to add the filled in habit to their list by pushing the button
 
-My habits
+Habits
 Provides an overview over all active habits added by the user
-The habit-boxes enable the user to get more information about them by pushing the arrow 
-The habit-boxes enable the user to delete a habit by pushing “delete” 
+The habit-boxes enable the user to delete a habit by pushing “delete”. A pop-up asking if the user is sure to delete protects the user from deleting bye mistake. By pushing yes or no the user can confirm the deleting process.
 The habit-boxes enable the user to edit an existing a habit by pushing “edit” 
 
 Log out
@@ -113,26 +97,15 @@ Log out
 
 Features Left to Implement
 A counter for the habits that helps the user to check off certain activities and follow up their frequency
+A statistic overview over habits and their activity
 
 
 
 Technologies Used
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-JQuery
+Jquery
 The project uses JQuery to simplify DOM manipulation.
 
-Testing
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+
 
 
 ## Testing 
@@ -182,21 +155,21 @@ to check my python code
 
 Test: Clicking on the navbar logo and 'home' navigation link in the navbar should navigate to the home page.
 
-Result: Tested on all pages and different devices . No errrors. Works as intended.
+Result: Tested on all pages and different devices . No errors. Works as intended.
 
 Test: Clicking on the button "+" , and from the navbar "create new habit" to create a new habit, it should send user to the habit creation page. 
 
-Result: Tested on all pages and different devices. No errrors. Works as intended.
+Result: Tested on all pages and different devices. No errors. Works as intended.
 
 Test: Clicking on edit button to edit a habit, it should redirect the user to habit's page after editing.
 
 Result: Tested on all pages and different devices. No errors. Works as intended.
 
-Test: Clicking on the delete button, a pop warning message will pop out to warn the user "This action cannot be undone.". option (No) if user changes his mind.
+Test: Clicking on the delete button, a pop-up warning message will pop out to warn the user "Are You Sure TO Delete This Habit? This action cannot be undone.". option (No) if user changes his mind.
 
 Result: No errors.
 
-Test: Clicking on the 'delete habit' button on the habits page, confirme  delete. the habits deleted from both habits and MongoDB.
+Test: Clicking on the 'delete habit' button on the habits page, confirm delete. the habits deleted from both habits and MongoDB.
 
 Result: No errors. 
 
@@ -204,13 +177,16 @@ Test: Leaving the mandatory formfields empty to create an account, the result sh
 
 Result: Error displays correctly.
 
-Test: The passwords dose not match the user, or the oposite, the result should be an error. without specifying if the error is the username or password
+Test: The passwords does not match the user, or the opposite, the result should be an error. Without specifying if the error is the username or password
 Result: Error displays correctly.
 
 Test: Playing in URL like adding "/login" or "/register" to the end of URL, while the user is logged in.
-Result: The user can accssess even he is already logged in.
-Fixed: Adding an if statement to forbid user, with message that explain that's user alreday logged in.
+Result: The user can access even he is already logged in.
+Fixed: Adding an if statement to forbid user, with message that explains that the user is alreday logged in.
+Not fixed: New user after registration, has to reach the same page with the forbidden message that the user is already logged in. But, the user can easily navigate out if using the navbar. 
 
+Test: User add to the URL meaningless text, User should get an error page 404 with text "The page is not found"
+Result: Error displays correctly.
 
 
 
@@ -233,17 +209,17 @@ Fixed: Adding an if statement to forbid user, with message that explain that's u
 ### Heruko:
 
 
-1- After creating an account at heroku and loogged in, created a new application using the Heroku dashboard.
+1- After creating an account at heroku and logged in, created a new application using the Heroku dashboard.
 
-2- Creating a new databas collection in mongoDB. collect the mongidb URL after adding a username and pasword.
+2- Creating a new databas collection in mongoDB. collect the mongodb URL after adding a username and password.
 
 3- Go to settings tab in Heroku, click on 'reveal config vars' and add config vars such as IP (0.0.0.0), PORT (5000), MongoDB Name, MongoDB URI (URL with DB name and password that i have created).
 
-4- Install Heroku via the console using 'npm install -g Heroku'.
+4- Install Heroku in the terminal using 'npm install -g Heroku'.
 
-5- Log into Heroku via the console using 'heroku login' and follow the on screen instructions to log in.
+5- Log into Heroku in the terminal using 'heroku login' and follow the on screen instructions to log in.
 
-6- Creating env.py to stor the festive data such as secret keys 
+6- Creating env.py to store the festive data such as secret keys 
 
 7- Create a requirements.txt via the terminal using 'pip3 freeze > requirements.txt'.
 
@@ -253,9 +229,9 @@ Fixed: Adding an if statement to forbid user, with message that explain that's u
 
 10- Connect GitHub to Heroku via the console using 'heroku git:remote a InhabitU.
 
-11-Commit all files in your project via the console using 'git add .' and 'git commit -m "comment"'.
+11-Commit all files in my project in the terminal  using 'git add .' and 'git commit -m "comment"'.
 
-12- Deploy your project to Heroku via the consol using 'git push heroku master'.
+12- Deploy my project to Heroku in the terminal using 'git push heroku master'.
 
 
 ### Running the application locally using Gitpod:
@@ -280,10 +256,10 @@ Fixed: Adding an if statement to forbid user, with message that explain that's u
 The project is inspired from task manager project in the module. 
 
 ### Media
-The static images used accross the page were obtained from https://unsplash.com/
+The static images used across the page were obtained from https://unsplash.com/
 
 ### Acknowledgements
 A very big thank you goes to my Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project. 
-Slack community and the tutor team for
+
 ### Disclaimer
 The content of this website is for educational purposes only.
