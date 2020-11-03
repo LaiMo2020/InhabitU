@@ -165,7 +165,7 @@ If this section grows too long, you may want to split it off into a separate fil
 - [vlaidator/screnshoot/JS](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/JS%20validation.png)
 - [vlaidator/screnshoot/PYTHON](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/python%20validation-%20pep8.png)
 
-
+### I have used the follwoing tech to test my code:
 - [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
 to visualise/edit my code live.
 - [W3C/HTML](https://validator.w3.org/)
@@ -176,7 +176,13 @@ to check my CSS code.
 - [Jshint](https://jshint.com/)
 to check my JS code.
 - [PEP8](http://pep8online.com/)
+to check my python code
 ## Deployment
+
+#### The project is stored in a Github [repository](https://github.com/LaiMo2020/InhabitU)  & hosted on [Heroku](https://inhabitu-flask-app.herokuapp.com/).
+
+
+
 #### I have made the follwoing steps to deploye my app: 
 
 - Creating a new databas in mongoDB
@@ -192,18 +198,21 @@ to check my JS code.
 - install flask-pymongo and dnspython
 
 
-#### [Also I have craeted the follwoing Heroku Config Vars](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/heroku-config-vars.png)
+
 Different configuration files?
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
-Credits
+## Credits
 
-Content
-The text for section Y was copied from the Wikipedia article Z
+### Content
+The project is inspired from task manager project in the module. 
 
-Media
-The photos used in this site were obtained from ...
+### Media
+The static images used accross the page were obtained from https://unsplash.com/
 
-Acknowledgements
-I received inspiration for this project from X
+### Acknowledgements
+A very big thank you goes to my Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project. 
+Slack community and the tutor team for
+### Disclaimer
+The content of this website is for educational purposes only.
