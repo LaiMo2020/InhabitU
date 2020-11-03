@@ -156,12 +156,12 @@ def logout():
 @app.route("/create_habit", methods=["GET", "POST"])
 def create_habit():
     if request.method == "POST":
-        prioritize = "on" if request.form.get("prioritize") else "off"
+        prioritize = True if request.form.get("prioritize") else False
         habits = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "prioritize": True,
+            "prioritize": True or False,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
@@ -183,7 +183,7 @@ def edit_habit(habit_id):
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "prioritize": True,
+            "prioritize": True or False,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
