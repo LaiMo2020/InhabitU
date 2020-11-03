@@ -153,7 +153,7 @@ For live editing options while coding the page
 To create wireframes
 ### 13. [Heroku](https://dashboard.heroku.com/apps)
 Storing my app.
-### 14. [Pyhton)(https://www.python.org/)
+### 14. [Pyhton](https://www.python.org/)
 Backend programmering language.
 ### 15. [MongoDB](https://www.mongodb.com/)
 cross-platform document-oriented database/ NOSQL 
