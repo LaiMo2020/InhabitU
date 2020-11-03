@@ -10,13 +10,13 @@
 				<img src="https://images.unsplash.com/photo-1562585398-fbf461aec9a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="inspiration">
 				<span class="card-title">Habits</span>
 			</div>
-			<div class="card-content">
-				<ul class="collection">
+			<div class="card-content collapsible">
+				<ul class="collection collapsible">
                     <!-- create a for loop for habits -->
 					{% for habit in habits %}
 
 					<li>
-						<div class="collection  fffff black-text darken-4 text-shadow3 ">
+						<div class="collection collapsible-header fffff black-text darken-4 text-shadow3 ">
 							<div class="col s3">
 								<i class="fas fa-caret-down"></i>
                                 <!-- when the user is loggedin -->
@@ -54,14 +54,18 @@
 
 							</div>
                             <!-- display in the habit list -->
-							<div class="col s9">
+							<div class="col s9 collapsible">
 								<strong>{{ habit.habit_name }}</strong>
-								{% if habit.prioritize == "on" %}
+								<strong>{{ habit.habit_description }}</strong>
+								<strong>{{ habit.due_date }}</strong>
+								{% if habit.prioritize == "True" %} 
 								<i class="fas fa-exclamation-circle grey-text text-darken-3 tooltipped"
                                     data-position="right" data-tooltip="prioritize!"></i>
-								{% endif %}
+                               
+                                  
+								
 							</div>
-
+                                 {% endif %} 
 
 							{% endfor %}
 						</div>
