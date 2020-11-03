@@ -71,31 +71,31 @@
 
 
 
-Header– without being logged in
-The section “Home” in the header allows user that are not logged in to get information on a balanced lifestyle. To get started they can choose from options to “log in” or “register” 
-“Log in” allows the user to log in to their profile by filling in their username and password. 
-Pushing “register account “ at the bottom of the log-in dialogue allows the user to reach the “register” dialogue
+ ### Header– without being logged in
+ The section “Home” in the header allows user that are not logged in to get information on a balanced lifestyle. To get started they can choose from options to “log in” or “register” 
+ “Log in” allows the user to log in to their profile by filling in their username and password. 
+ Pushing “register account “ at the bottom of the log-in dialogue allows the user to reach the “register” dialogue
 “Register” allows the user to register a new account by filling in a user name, their e-mail address and define a password. 
 
-Header– as a logged in user
-Home
+### Header– as a logged in user
+#### Home
 The “+” button allows the user to create a new habit Icons referring to the three categories enable the user to switch between predefined habits in the three categories by clicking on the icons
 Predefined habits in all three categories enable the user to add them to their listby…  
 An edit dialogue for predefined habits enables the user to edit the habit before adding it to their list by customizing the fields in the dialogue
 
-Create a new habit
+#### Create a new habit
 The dialogue enables the user to create a custom habit by choosing categories, filling in name, description and start date and choosing if it is prioritized or not.
 The “add new habit” button enables the user to add the filled in habit to their list by pushing the button
 
-Habits
+#### Habits
 Provides an overview over all active habits added by the user
 The habit-boxes enable the user to delete a habit by pushing “delete”. A pop-up asking if the user is sure to delete protects the user from deleting bye mistake. By pushing yes or no the user can confirm the deleting process.
 The habit-boxes enable the user to edit an existing a habit by pushing “edit” 
 
-Log out
+#### Log out
 “Log out” enables the user to log out of his or her profile by pushing the link in the header
 
-Features Left to Implement
+### Features Left to Implement
 A counter for the habits that helps the user to check off certain activities and follow up their frequency
 A statistic overview over habits and their activity
 
@@ -105,8 +105,58 @@ Technologies Used
 Jquery
 The project uses JQuery to simplify DOM manipulation.
 
+# Technologies Used
 
 
+### 1. [HTML](https://html.com/)
+
+For the basic structure of the project
+
+### 2. [CSS](http://css.com/)
+
+For the styling and design of the webpage
+
+### 3. [JQuery ](https://jquery.com/) 
+
+ Add dynamic and interactive elements to websites 
+
+### 4.  [materialize](https://materializecss.com/)
+
+Quick and responsive form and method to implement.
+
+### 5. [GitHub](https://github.com/)
+
+Platform to publish the webpage and interact with clients and the coder community
+
+### 6. [Gitpod](https://www.gitpod.io/)
+
+A coding editor with an adapted and easy coding environment
+
+### 7. [GIT](https://git-scm.com/)
+
+For version control. As I changed my mentor during the project phase I created a new repository throughout the process. Many sections I had created during my tutoring with the first mentor were pasted into this new repository. Therefor e GIT was just used a few times. 
+
+### 8. [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+A web framework  for Python
+### 9. [Font Awesome](https://fontawesome.com/6?next=%2F)
+
+As a resource of icons to style my page
+### 10. [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+A web template engine for python 
+
+### 11. [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools)
+
+For live editing options while coding the page
+### 12. [Balsamiq](https://balsamiq.com/)
+
+To create wireframes
+### 13. [Heroku](https://dashboard.heroku.com/apps)
+Storing my app.
+### 14. [Pyhton)(https://www.python.org/)
+Backend programmering language.
+### 15. [MongoDB](https://www.mongodb.com/)
+cross-platform document-oriented database/ NOSQL 
 
 ## Testing 
 
@@ -259,7 +309,9 @@ The project is inspired from task manager project in the module.
 The static images used across the page were obtained from https://unsplash.com/
 
 ### Acknowledgements
-A very big thank you goes to my Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project. 
-
+A very big thank you goes to my <br>
+1- Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project. <br>
+2- Slack <br>
+3- Tutor support team
 ### Disclaimer
 The content of this website is for educational purposes only.
