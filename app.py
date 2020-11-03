@@ -24,19 +24,16 @@ heart = {
         "category_name": "Heart",
         "habit_name": "Date your wife ",
         "habit_description": " invite your wife for dinner.",
-        "frequenc": "Monthly "
     }
 brain = {
         "category_name": "Brain",
         "habit_name": "meditate ",
-        "habit_description": "Stay relax and meiditate daily",
-        "frequenc": "Daily "
+        "habit_description": "Stay relax and meditate daily",
     }
 body = {
         "category_name": "Body",
         "habit_name": "meditate ",
-        "habit_description": "Stay relax and meiditate daily",
-        "frequenc": "Daily "
+        "habit_description": "eating is good",
     }
 mongo.db.categories.update_one(
         {"_id": "5063114bd386d8fadbd6b004"},
@@ -92,17 +89,15 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "password_confirm": generate_password_hash(request.form.get(
-                "confirm"))
+            "password": generate_password_hash(request.form.get("password"))
         }
-        dumps(register)
-        if request.form.get("passowrd") == request.form.get("confirm"):
-            mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(register)
 
-            # put the new user into 'session' cookie
-            session["user"] = request.form.get("username").lower()
-            flash("Registration Successful!")
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
+
     return render_template("register.html")
 
 
@@ -110,12 +105,12 @@ def register():
 def login():
     if request.method == "POST":
         # check if username exists in db
-        existing_username = mongo.db.users.find_one(
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username")})
 
-        if existing_username:
+        if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_username["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
                 flash("Welcome, {}".format(
                     request.form.get("username")))
@@ -210,6 +205,12 @@ def delete_habit(habit_id):
     mongo.db.habits.remove({"_id": ObjectId(habit_id)})
     flash("Habit Successfully Deleted")
     return redirect(url_for("get_habits", username=session["user"]))
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # Error page
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":
