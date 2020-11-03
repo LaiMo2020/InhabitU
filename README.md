@@ -177,31 +177,102 @@ to check my CSS code.
 to check my JS code.
 - [PEP8](http://pep8online.com/)
 to check my python code
+
+### Manual Testing:
+
+Test: Clicking on the navbar logo and 'home' navigation link in the navbar should navigate to the home page.
+
+Result: Tested on all pages and different devices . No errrors. Works as intended.
+
+Test: Clicking on the button "+" , and from the navbar "create new habit" to create a new habit, it should send user to the habit creation page. 
+
+Result: Tested on all pages and different devices. No errrors. Works as intended.
+
+Test: Clicking on edit button to edit a habit, it should redirect the user to habit's page after editing.
+
+Result: Tested on all pages and different devices. No errors. Works as intended.
+
+Test: Clicking on the delete button, a pop warning message will pop out to warn the user "This action cannot be undone.". option (No) if user changes his mind.
+
+Result: No errors.
+
+Test: Clicking on the 'delete habit' button on the habits page, confirme  delete. the habits deleted from both habits and MongoDB.
+
+Result: No errors. 
+
+Test: Leaving the mandatory formfields empty to create an account, the result should be an error.
+
+Result: Error displays correctly.
+
+Test: The passwords dose not match the user, or the oposite, the result should be an error. without specifying if the error is the username or password
+Result: Error displays correctly.
+
+Test: Playing in URL like adding "/login" or "/register" to the end of URL, while the user is logged in.
+Result: The user can accssess even he is already logged in.
+Fixed: Adding an if statement to forbid user, with message that explain that's user alreday logged in.
+
+
+
+
+
+
 ## Deployment
 
 #### The project is stored in a Github [repository](https://github.com/LaiMo2020/InhabitU)  & hosted on [Heroku](https://inhabitu-flask-app.herokuapp.com/).
 
-
-
 #### I have made the follwoing steps to deploye my app: 
 
-- Creating a new databas in mongoDB
-- Creating a new repo in GitHub “InhabitU”
-- Opening the repo in gitpod  and create my flask app
-- Create .gitignoe to stor the file I don’t want to push and make it public
-- Creating env.py to stor the festive data such as secret keys
-- Creating requirements.tex so gitpod knows how and what application I’m doing 
-- Create Profile
-- Install flask on gitpod
-- Deploy my app inhabitU to Heroku
-- Connect flask to mongoDB
-- install flask-pymongo and dnspython
+### Github:
+
+1. Creating a project repository Used the template of Code Institute to facilitate the environment of the editor
+2. Clicked on the gitpod green botton to accsses to my IDE on gitpod.
+3. selected the Master branch GitHub pages section as source 
+4. Using GIT to have different versions with a comment of my project (git commit -m "my comment", git push ) 
+
+
+### Heruko:
+
+
+1- After creating an account at heroku and loogged in, created a new application using the Heroku dashboard.
+
+2- Creating a new databas collection in mongoDB. collect the mongidb URL after adding a username and pasword.
+
+3- Go to settings tab in Heroku, click on 'reveal config vars' and add config vars such as IP (0.0.0.0), PORT (5000), MongoDB Name, MongoDB URI (URL with DB name and password that i have created).
+
+4- Install Heroku via the console using 'npm install -g Heroku'.
+
+5- Log into Heroku via the console using 'heroku login' and follow the on screen instructions to log in.
+
+6- Creating env.py to stor the festive data such as secret keys 
+
+7- Create a requirements.txt via the terminal using 'pip3 freeze > requirements.txt'.
+
+8- Create a Procfile in the terminal using 'echo web: python app.py > Procfile'.
+
+9- Deploy my app inhabitU to Heroku 
+
+10- Connect GitHub to Heroku via the console using 'heroku git:remote a InhabitU.
+
+11-Commit all files in your project via the console using 'git add .' and 'git commit -m "comment"'.
+
+12- Deploy your project to Heroku via the consol using 'git push heroku master'.
+
+
+### Running the application locally using Gitpod:
+
+
+1- Install the necessary libraries specified in the requirements.txt.
+
+2- Set environment variables by creating and adding them into a env.py file.
+
+3- Create a .gitignore file in the root directory and add the env.py file to avoid it being pushed to GitHub. to protect sensitive data.
+
+4- Import the env.py file into the app.py file.
+
+5- Run the application, in the terminal : python3 app.py
 
 
 
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 ## Credits
 
