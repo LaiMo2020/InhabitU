@@ -20,7 +20,7 @@
 							helps you to create every-day habits for each part
 							and keeping them in balance.</h6><br>
 						<h4>Lets inhabitU</h4>
-						<h5>Do you need some inspirations, scroll down <i class="fas fa-scroll"></i> </h5>
+						<h5>Do you need some inspirations, Create an account and scroll down <i class="fas fa-scroll"></i> </h5>
 					   <br>
 					<div id="icons-size">
 						<i  class=" col s3 fas fa-heartbeat small amber-text text-darken-1" ></i>
@@ -33,7 +33,59 @@
 			</div>
 		</div>
 	</div>
+    
 
+     <div class="card">
+    <div class="card-content center-align">
+      <h5>Healthy Habits </h5>
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4" ><i  class=" col s3 fas fa-heartbeat small amber-text text-darken-1" ></i></a></li>
+        <li class="tab"><a href="#test6" ><i class="col s6 fas fa-running small amber-text text-darken-3"></i></a></li>
+        <li class="tab"><a href="#test5"><i class=" fas fa-brain small amber-text text-darken-2"></i></a></li>
+        
+      </ul>
+    </div>
+    {% for category in categories %}
+    <div class="card-content grey lighten-4"> 
+     
+      <div id="test4">
+     {% if category.category_name == "Heart" %}
+     <ul class="collection">
+      <li class="collection-item">{{ category.habit_name }}</li>
+      
+      <li class="collection-item">{{ category.habit_description}}</li>
+      
+    </ul>
+    </div>
+     {% endif %}
+    
+     
+    
+
+      
+     
+      <div id="test5">   <ul class="collection">
+       
+      <li class="collection-item">{{ category.habit_name }}</li>
+      <li class="collection-item">{{ category.frequenc}}</li>
+      <li class="collection-item">{{ category.habit_description}}</li>
+      
+    </ul></div>
+    
+      <div id="test6">   <ul class="collection">
+        
+      <li class="collection-item">{{ category.habit_name }}</li>
+      <li class="collection-item">{{ category.frequenc }}</li>
+      <li class="collection-item">{{ category.habit_description}}</li>
+      
+    </ul></div>
+    
+    </div>
+  </div>
+ 
+{% endfor %}
 
 	<div class="row">
 		<!-- users have acssess to login/register when he is not logged in  -->
