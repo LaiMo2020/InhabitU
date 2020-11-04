@@ -12,8 +12,8 @@
   margin: 5px;
   line-height: 42px;
 }
-img{
-    margin-top: 10%;
+img {
+  margin-top: 10%;
 }
 /* floating button */
 #scale-demo {
@@ -22,18 +22,16 @@ img{
   left: 47%;
 }
 /* message to redirect users if action is not allowed */
-div #forbiden{
-    margin-top: 50% !important;
+div #forbiden {
+  margin-top: 50% !important;
   display: flex;
   justify-content: center;
 }
 /* margin for logo */
-nav .brand-logo{
-    margin-left: 20px;
+nav .brand-logo {
+  margin-left: 20px;
 }
 
-#display-habit{
-    margin-bottom: 15%;
+#display-habit {
+  margin-bottom: 15%;
 }
-
-    
