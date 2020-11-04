@@ -37,6 +37,7 @@
     </div>
   </div>
 </div>
+<!-- Only for logged in users -->
 {% if session.user %}
 <div class="card">
   <div class="card-content center-align">
@@ -63,6 +64,7 @@
     </ul>
   </div>
  {% endif %}
+ <!-- users can jump over the 3 habits suggested easilly -->
 {% for category in categories %} 
     {% if category.category_name == "Heart" %}
     <div id="display-habit">
@@ -121,7 +123,7 @@
         >
           <i class="fas fa-plus"></i>
         </a>
-       </div>
+      
         {% endif %} {% endblock %}
     
 
