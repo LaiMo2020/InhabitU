@@ -23,17 +23,17 @@ mongo = PyMongo(app)
 heart = {
         "category_name": "Heart",
         "habit_name": "Date your wife ",
-        "habit_description": " invite your wife for dinner.",
+        "habit_description": " invite your wife for dinner."
     }
 brain = {
         "category_name": "Brain",
-        "habit_name": "meditate ",
-        "habit_description": "Stay relax and meditate daily",
+        "habit_name": "Meditate ",
+        "habit_description": "Stay relax and meditate daily"
     }
 body = {
         "category_name": "Body",
-        "habit_name": "meditate ",
-        "habit_description": "eating is good",
+        "habit_name": "GYM",
+        "habit_description": "GO to the GYM"
     }
 mongo.db.categories.update_one(
         {"_id": "5063114bd386d8fadbd6b004"},
@@ -161,7 +161,7 @@ def create_habit():
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "prioritize": True or False,
+            "prioritize": prioritize,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
@@ -183,7 +183,7 @@ def edit_habit(habit_id):
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
             "habit_description": request.form.get("habit_description"),
-            "prioritize": True or False,
+            "prioritize": prioritize,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
