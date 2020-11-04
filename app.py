@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 heart = {
         "category_name": "Heart",
         "habit_name": "Date your wife ",
-        "habit_description": " invite your wife for dinner."
+        "habit_description": "Invite your wife for a lovely dinner."
     }
 brain = {
         "category_name": "Brain",
@@ -32,8 +32,8 @@ brain = {
     }
 body = {
         "category_name": "Body",
-        "habit_name": "GYM",
-        "habit_description": "GO to the GYM"
+        "habit_name": "Running",
+        "habit_description": "Run every morning 5KM"
     }
 mongo.db.categories.update_one(
         {"_id": "5063114bd386d8fadbd6b004"},
