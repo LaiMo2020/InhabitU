@@ -79,9 +79,10 @@
 
 ### Header– as a logged in user
 #### Home
-The “+” button allows the user to create a new habit Icons referring to the three categories enable the user to switch between predefined habits in the three categories by clicking on the icons
-Predefined habits in all three categories enable the user to add them to their listby…  
-An edit dialogue for predefined habits enables the user to edit the habit before adding it to their list by customizing the fields in the dialogue
+The “+” button allows the user to create a new habit
+Icons referring to the three categories enable the user to switch between predefined habits in the three categories by clicking on the icons
+Predefined habits in all three categories give inspiration.
+
 
 #### Create a new habit
 The dialogue enables the user to create a custom habit by choosing categories, filling in name, description and start date and choosing if it is prioritized or not.
