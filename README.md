@@ -312,6 +312,7 @@ The static images used across the page were obtained from https://unsplash.com/
 A very big thank you goes to my <br>
 1- Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project. <br>
 2- Slack <br>
-3- Tutor support team
+3- Tutor support team<br>
+4- Tim Nelson for the vidioes in Data-centric-dev lessons 
 ### Disclaimer
 The content of this website is for educational purposes only.
