@@ -238,6 +238,10 @@ Not fixed: New user after registration, has to reach the same page with the forb
 Test: User add to the URL meaningless text, User should get an error page 404 with text "The page is not found"
 Result: Error displays correctly.
 
+Test: Error favicon.ico is in the console.
+Fixed: By adding a file with favicon.ico name.
+Result: Not Fixed, I have google it and could not find another solution for it.
+
 
 
 
