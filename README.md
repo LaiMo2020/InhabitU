@@ -276,7 +276,7 @@ Result: Not Fixed, I have google it and could not find another solution for it.
 
 6- Creating env.py to store the festive data such as secret keys 
 
-7- Create a requirements.txt via the terminal using 'pip3 freeze > requirements.txt'.
+7- Create a requirements.txt in the terminal using 'pip3 freeze > requirements.txt'.
 
 8- Create a Procfile in the terminal using 'echo web: python app.py > Procfile'.
 
@@ -306,7 +306,7 @@ Result: Not Fixed, I have google it and could not find another solution for it.
 
 
 ## Credits
-
+"Add task" project in the module
 ### Content
 The project is inspired from task manager project in the module. 
 
