@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<!-- <h3 class="amber-text text-darken-3  center-align">All Habits</h3> -->
 <div class="row ">
 	<div class="col s12 m12">
 		<div class="card">
@@ -11,21 +9,20 @@
 				<span class="card-title">Habits</span>
 			</div>
 			<div class="card-content collapsible">
-				<ul class="collection collapsible">
+				<ul class="collection">
                     <!-- create a for loop for habits -->
 					{% for habit in habits %}
 
-					<li>
+                    <li>
 						<div class="collection collapsible-header fffff black-text darken-4 text-shadow3 ">
 							<div class="col s3">
-								<i class="fas fa-caret-down"></i>
                                 <!-- when the user is loggedin -->
 								{% if session.user|lower == habit.created_by|lower %}
 
 								<a href="{{ url_for('edit_habit', habit_id=habit._id) }}"
 									class="btn-floating btn-large grey darken-3 ">Edit </a>
 
-								<a class="waves-effect waves-purple btn-large  bold upper modal-trigger grey darken-3 white-text "
+								<a class="btn-floating btn-large grey darken-3 bold upper modal-trigger"
 									href="#modal-delete-habit">
 									<span class="hide-on-small-and-down ">Delete</span>
 									<i class="far fa-trash-alt"></i>
