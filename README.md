@@ -280,13 +280,14 @@ Result: Not Fixed, I have google it and could not find another solution for it.
 
 8- Create a Procfile in the terminal using 'echo web: python app.py > Procfile'.
 
-9- Deploy my app inhabitU to Heroku 
+9- Deploy my app inhabitU to Heroku, adding the following: IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY. [env.py](https://github.com/LaiMo2020/InhabitU/blob/master/static/deployment/conifg-var:heroku.png)
 
 10- Connect GitHub to Heroku via the console using 'heroku git:remote a InhabitU.
 
 11-Commit all files in my project in the terminal  using 'git add .' and 'git commit -m "comment"'.
 
 12- Deploy my project to Heroku in the terminal using 'git push heroku master'.
+
 
 
 ### Running the application locally using Gitpod:
@@ -298,7 +299,7 @@ Result: Not Fixed, I have google it and could not find another solution for it.
 
 3- Create a .gitignore file in the root directory and add the env.py file to avoid it being pushed to GitHub. to protect sensitive data.
 
-4- Import the env.py file into the app.py file.
+4- Import the env.py file into the app.py file. and, add the following: IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY. [env.py](https://github.com/LaiMo2020/InhabitU/blob/master/static/deployment/env.py%20enviro.png)
 
 5- Run the application, in the terminal : python3 app.py
 
