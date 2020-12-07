@@ -178,7 +178,7 @@ def create_habit():
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
     if request.method == "POST":
-        prioritize = "True" if request.form.get("prioritize") else "False"
+        prioritize = True if request.form.get("prioritize") else False
         submit = {
             "category_name": request.form.get("category_name"),
             "habit_name": request.form.get("habit_name"),
