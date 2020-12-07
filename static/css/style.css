@@ -5,28 +5,34 @@
 .flashes h4 {
   line-height: 2;
 }
+
 .btn-small {
   margin: 5px;
 }
+
 .collapsible-header .col strong {
   margin: 5px;
   line-height: 42px;
 }
+
 img {
   margin-top: 10%;
 }
+
 /* floating button */
 #scale-demo {
   position: fixed !important;
   top: 90%;
   left: 47%;
 }
+
 /* message to redirect users if action is not allowed */
 div #forbiden {
   margin-top: 50% !important;
   display: flex;
   justify-content: center;
 }
+
 /* margin for logo */
 nav .brand-logo {
   margin-left: 20px;
