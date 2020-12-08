@@ -19,38 +19,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# suggestion for users
-heart = {
-        "category_name": "Heart",
-        "habit_name": "Date your wife ",
-        "habit_description": "Invite your wife for a lovely dinner."
-    }
-brain = {
-        "category_name": "Brain",
-        "habit_name": "Meditate ",
-        "habit_description": "Stay relax and meditate daily"
-    }
-body = {
-        "category_name": "Body",
-        "habit_name": "Running",
-        "habit_description": "Run every morning 5KM"
-    }
-mongo.db.categories.update_one(
-        {"_id": "5063114bd386d8fadbd6b004"},
-        {"$set": heart},
-        upsert=True
-    )
-mongo.db.categories.update_one(
-        {"_id": "5063114bd386d8fadbd6b005"},
-        {"$set": brain},
-        upsert=True
-    )
-mongo.db.categories.update_one(
-        {"_id": "5063114bd386d8fadbd6b006"},
-        {"$set": body},
-        upsert=True
-    )
-
 # Route to home page
 
 
@@ -67,13 +35,13 @@ def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
     habits = {
-            "category_name": request.form.get("category_name"),
-            "habit_name": request.form.get("habit_name"),
-            "habit_description": request.form.get("habit_description"),
-            "prioritize": True,
-            "due_date": request.form.get("due_date"),
-            "created_by": session["user"]
-        }
+        "category_name": request.form.get("category_name"),
+        "habit_name": request.form.get("habit_name"),
+        "habit_description": request.form.get("habit_description"),
+        "prioritize": True,
+        "due_date": request.form.get("due_date"),
+        "created_by": session["user"]
+    }
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -87,17 +55,18 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.users.insert_one(register)
-
-        # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
-
+        if request.form.get("password") == request.form.get("confirm-password"):
+            register = {
+                "username": request.form.get("username").lower(),
+                "password": generate_password_hash(request.form.get("password")),
+                "email": request.form.get("email")
+            }
+            mongo.db.users.insert_one(register)
+            # put the new user into 'session' cookie
+            session["user"] = request.form.get("username").lower()
+            flash("Registration Successful!")
+            return redirect(url_for("profile", username=session["user"]))
+        flash("Password Dose Not Much")
     return render_template("register.html")
 
 
@@ -216,4 +185,4 @@ def page_not_found(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
