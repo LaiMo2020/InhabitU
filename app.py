@@ -4,8 +4,8 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from datetime import datetime
 from bson.objectid import ObjectId
-from json import dumps
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -40,6 +40,7 @@ def get_habits(username):
         "habit_description": request.form.get("habit_description"),
         "prioritize": True,
         "due_date": request.form.get("due_date"),
+        "journal": request.form.get("habit_id"),
         "created_by": session["user"]
     }
 
@@ -66,7 +67,7 @@ def register():
             session["user"] = request.form.get("username").lower()
             flash("Registration Successful!")
             return redirect(url_for("profile", username=session["user"]))
-        flash("Password Dose Not Much")
+        flash("Password Dose Not Match")
     return render_template("register.html")
 
 
@@ -142,6 +143,24 @@ def create_habit():
     return render_template("create_habit.html", categories=categories)
 
 # edit a habit
+
+
+@app.route("/add_journals/<habit_id>", methods=["GET", "POST"])
+def add_journals(habit_id):
+    habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
+    if request.method == "POST":
+        today = datetime.today()
+        journal = {
+            "habit_id": habit_id,
+            "journal_entry_text": request.form.get("journal_entry_text"),
+            "date": today
+        }
+        mongo.db.journal_entries.insert_one(journal)
+
+        flash("Journal Successfully Created")
+        return redirect(url_for("add_journals", habit_id=habit_id))
+    journals = list(mongo.db.journal_entries.find({"habit_id": (habit_id)}))
+    return render_template("add_journal.html", habit=habit, journals=journals)
 
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
