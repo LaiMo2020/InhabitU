@@ -34,40 +34,40 @@ def home():
 def get_habits(username):
     habits = list(mongo.db.habits.find({"created_by": username}))
     return render_template("habit.html", habits=habits)
-    habits = {
-        "category_name": request.form.get("category_name"),
-        "habit_name": request.form.get("habit_name"),
-        "habit_description": request.form.get("habit_description"),
-        "prioritize": True,
-        "due_date": request.form.get("due_date"),
-        "journal": request.form.get("habit_id"),
-        "created_by": session["user"]
-    }
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        # *** put all the form attributes in variables to avoid
+        username = request.form.get("username").lower()
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm-password")
+        email = request.form.get("email")
+
         # check if username already exists in db
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one({"username": username})
 
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        if request.form.get("password") == request.form.get("confirm-password"):
+        if password == confirm_password:
             register = {
-                "username": request.form.get("username").lower(),
-                "password": generate_password_hash(request.form.get("password")),
-                "email": request.form.get("email")
+                "username": password,
+                "password": generate_password_hash(password),
+                "email": email
             }
             mongo.db.users.insert_one(register)
+
             # put the new user into 'session' cookie
-            session["user"] = request.form.get("username").lower()
+            session["user"] = username
             flash("Registration Successful!")
             return redirect(url_for("profile", username=session["user"]))
-        flash("Password Dose Not Match")
+
+        else:
+            flash("Passwords do not match.")
+
     return render_template("register.html")
 
 
@@ -104,7 +104,7 @@ def profile(username):
     # grab the session user's username from db
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"username": session["user"]})
 
     if session["user"]:
         return render_template(
