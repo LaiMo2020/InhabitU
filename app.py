@@ -1,4 +1,8 @@
-# Inspired some code were copied/edited the mini project task manager
+"""
+*** Module docstring: ***
+Inspired some code were copied/edited the mini project task manager.
+"""
+
 import os
 from flask import (
     Flask, flash, render_template,
@@ -7,6 +11,7 @@ from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
@@ -23,8 +28,10 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/home")
 def home():
+    """
+    Home page view
+    """
     return render_template("home.html")
 
 
@@ -32,20 +39,31 @@ def home():
 
 @app.route("/get_habits/<username>", methods=["GET"])
 def get_habits(username):
-    habits = list(mongo.db.habits.find({"created_by": username}))
-    return render_template("habit.html", habits=habits)
+    """
+    habit page view, diplaying only the habits created
+    by the user that logged in.
+    """
+    # *** Check if user is logged in. If not, redirect them to the login page.
+    if "user" in session:
+        habits = list(mongo.db.habits.find({"created_by": session["user"]}))
+        return render_template("habit.html", habits=habits)
+    else:
+        return redirect('login.html')
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    register page view, with four fileds, username, email,
+    password, and confirm password
+    """
     if request.method == "POST":
-        # *** put all the form attributes in variables to avoid
         username = request.form.get("username").lower()
         password = request.form.get("password")
         confirm_password = request.form.get("confirm-password")
         email = request.form.get("email")
 
-        # check if username already exists in db
+        # *** check if username already exists in db
         existing_user = mongo.db.users.find_one({"username": username})
 
         if existing_user:
@@ -60,7 +78,7 @@ def register():
             }
             mongo.db.users.insert_one(register)
 
-            # put the new user into 'session' cookie
+            # *** put the new user into 'session' cookie
             session["user"] = username
             flash("Registration Successful!")
             return redirect(url_for("profile", username=session["user"]))
@@ -73,17 +91,22 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    login page view, with two fileds, username, email,
+    """
     if request.method == "POST":
-        # check if username exists in db
+        username = request.form.get("username")
+        password = request.form.get("password")
+
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username")})
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username")
+            if check_password_hash(existing_user["password"], password):
+                session["user"] = username
                 flash("Welcome, {}".format(
-                    request.form.get("username")))
+                    username))
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
@@ -99,9 +122,9 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/home/<username>", methods=["GET", "POST"])
+@app.route("/home/<username>", methods=["GET"])
 def profile(username):
-    # grab the session user's username from db
+    # *** grab the session user's username from db
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     username = mongo.db.users.find_one(
         {"username": session["user"]})
@@ -115,16 +138,18 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    # remove user from session cookie, tell them they are looged out
+    session.pop("user")
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
-# Create habit
-
 
 @app.route("/create_habit", methods=["GET", "POST"])
 def create_habit():
+    """
+    create page view, here user can create a new habit
+    """
     if request.method == "POST":
         prioritize = True if request.form.get("prioritize") else False
         habits = {
@@ -140,11 +165,14 @@ def create_habit():
         return redirect(url_for("get_habits", username=session["user"]))
     return render_template("create_habit.html")
 
-# edit a habit
-
 
 @app.route("/add_journals/<habit_id>", methods=["GET", "POST"])
 def add_journals(habit_id):
+    """
+    add journal entry page view, user can add daily notes to his journal
+    eg: follow up his performance in each habit. 
+    the jouranl id is connecting with the habit id
+    """
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     if request.method == "POST":
         today = datetime.today()
@@ -163,14 +191,20 @@ def add_journals(habit_id):
 
 @app.route("/delete_journal<journal_id>")
 def delete_journal(journal_id):
-
+    """
+    delete one journal entry
+    """
     mongo.db.journal_entries.remove({"_id": ObjectId(journal_id)})
     flash("Journal Successfully Deleted")
+    # *** return to habit pages after deleting
     return redirect(url_for("get_habits", username=session["user"]))
 
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
+    """
+    editing habit so it match user new availability
+    """
     if request.method == "POST":
         prioritize = True if request.form.get("prioritize") else False
         submit = {
@@ -191,11 +225,12 @@ def edit_habit(habit_id):
     return render_template(
         "edit_habit.html", habit=habit, categories=categories)
 
-# delete habit
-
 
 @app.route("/delete_habit/<habit_id>")
 def delete_habit(habit_id):
+    """
+    delete one habit
+    """
     mongo.db.habits.remove({"_id": ObjectId(habit_id)})
     flash("Habit Successfully Deleted")
     return redirect(url_for("get_habits", username=session["user"]))
@@ -203,7 +238,9 @@ def delete_habit(habit_id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    # Error page
+    """
+    give 404 error id the page do not exisit
+    """
     return render_template('404.html'), 404
 
 
