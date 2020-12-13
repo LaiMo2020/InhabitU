@@ -170,16 +170,17 @@ def create_habit():
 def add_journals(habit_id):
     """
     add journal entry page view, user can add daily notes to his journal
-    eg: follow up his performance in each habit. 
+    eg: follow up his performance in each habit.
     the jouranl id is connecting with the habit id
     """
     habit = mongo.db.habits.find_one({"_id": ObjectId(habit_id)})
     if request.method == "POST":
-        today = datetime.today()
+        now = datetime.now()
+        date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
         journal = {
             "habit_id": habit_id,
             "journal_entry_text": request.form.get("journal_entry_text"),
-            "date": today
+            "date": date_time
         }
         mongo.db.journal_entries.insert_one(journal)
 
@@ -233,6 +234,7 @@ def delete_habit(habit_id):
     """
     mongo.db.habits.remove({"_id": ObjectId(habit_id)})
     flash("Habit Successfully Deleted")
+    # *** return user to habit page
     return redirect(url_for("get_habits", username=session["user"]))
 
 
