@@ -184,7 +184,7 @@ def add_journals(habit_id):
         }
         mongo.db.journal_entries.insert_one(journal)
 
-        flash("Journal Successfully Created")
+        flash("Journal Entry Successfully Created")
         return redirect(url_for("add_journals", habit_id=habit_id))
     journals = list(mongo.db.journal_entries.find({"habit_id": (habit_id)}))
     return render_template("add_journal.html", habit=habit, journals=journals)
