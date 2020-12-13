@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('.modal').modal();
     $('.datepicker').datepicker({
         format: "dd mmmm, yyyy",
-        yearRang: 2,
+        yearRang: 10,
         showClearBtn: true,
         i18n: {
             done: "Select"
