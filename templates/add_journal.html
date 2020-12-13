@@ -4,18 +4,14 @@
 {% if session["user"] %}
 
     <h3 class="amber-text text-darken-3 center-align"> {{ habit.habit_name }} Journal </h3>
-    <h5 class="amber-text text-darken-3 center-align"> {{ habit.habit_description }}  </h5>
+    <h5 class="amber-text text-darken-3  center-align"> {{ habit.habit_description }}  </h5>
         {% for journal in journals %}
     
-        <div class="input-field col s12">
+
         
-           <textarea id="journal_entry_text" name="journal_entry_text" minlength="6" maxlength="200" 
-                class="materialize-textarea amber-text text-darken-3 validate" required > 
-            </textarea>
-            <label for="journal_entry_text"><h4>{{ journal.journal_entry_text }}</h4>
+             
+            <label for="journal_entry_text"><h4 id="journal-header">{{ journal.journal_entry_text }}</h4>
             <h6 class="right-align"> {{ journal.date }} </h6></label>
-       
-        <label hidden for="journal_entries_id">{{ journal._id }}</label>
         
         <a class="btn-floating btn-large grey darken-3 bold upper modal-trigger"
                                             href="#{{ journal._id }}">
@@ -43,7 +39,7 @@
                                         </div>   
                                     </div>
                                     <hr>
-                              </div>       
+                            
                                     
        {% endfor %}
 
