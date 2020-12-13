@@ -41,3 +41,8 @@ nav .brand-logo {
 #display-habit {
   margin-bottom: 15%;
 }
+hr {  height: 3px;
+    border: 0; border-top: 3px solid orange;
+    margin-bottom: 5em ; 
+    margin-top: 1em;
+}
