@@ -57,11 +57,18 @@
 
 - As a user I want to edit a habit, so I can adapt it to new circumstances in my life
 
-  InhabitU enables the user in the “habits” overview with an option to edit existing habits
+  InhabitU enables the user in the “habits” overview with an option to edit existing habit
 
-- As a user I want to delete a habit, so I can get more time to spend on another habit or category
+- As a user I want to have an easy overview over my habits in different categories
 
- InhabitU enables the user in the “habits” overview with an option to delete existing habits
+  The habits, created by the user, are color-coded according to their category
+
+- As a user I want to write daily entries about my activities in a habit and save them in a journa
+
+  InhabitU enables the user to add entries to a habits journal and marks them with the current date and time
+
+ - As a user I want to be sure to register with the right password and prevent mistakes
+  InhabitU asks the user when registering to type his/her password twice and warns if they are not matching
 
 
 
@@ -92,6 +99,9 @@ The “add new habit” button enables the user to add the filled in habit to th
 Provides an overview over all active habits added by the user
 The habit-boxes enable the user to delete a habit by pushing “delete”. A pop-up asking if the user is sure to delete protects the user from deleting bye mistake. By pushing yes or no the user can confirm the deleting process.
 The habit-boxes enable the user to edit an existing a habit by pushing “edit” 
+The habit-boxes enable the user to reach the journal by pushing "journal"
+The journal page of a habit enables the user to make an entry about an activitie by writing in the form
+The delete button in the journal page enables the user to delete a previous entry
 
 #### Log out
 “Log out” enables the user to log out of his or her profile by pushing the link in the header
@@ -243,6 +253,9 @@ Test: Error favicon.ico is in the console.
 Fixed: By adding a file with favicon.ico name.
 Result: Not Fixed, I have google it and could not find another solution for it.
 
+Test: Writing non-matching passwords in the registration form
+Result: If the passwords does not match a message that the password does not match appears 
+
 
 
 
@@ -295,13 +308,13 @@ Result: Not Fixed, I have google it and could not find another solution for it.
 
 1- Install the necessary libraries specified in the requirements.txt.
 
-2- Set environment variables by creating and adding them into a env.py file.
+2- Set environment variables by creating and adding them into a env .py file.
 
-3- Create a .gitignore file in the root directory and add the env.py file to avoid it being pushed to GitHub. to protect sensitive data.
+3- Create a .gitignore file in the root directory and add the env. py file to avoid it being pushed to GitHub. to protect sensitive data.
 
-4- Import the env.py file into the app.py file. and, add the following: IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY. [env.py](https://github.com/LaiMo2020/InhabitU/blob/master/static/deployment/env.py%20enviro.png)
+4- Import the env. py file into the app. py file. and, add the following: IP, MONGO_DBNAME, MONGO_URI, PORT, SECRET_KEY. [env.py](https://github.com/LaiMo2020/InhabitU/blob/master/static/deployment/env.py%20enviro.png)
 
-5- Run the application, in the terminal : python3 app.py
+5- Run the application, in the terminal : python3 app .py
 
 
 
