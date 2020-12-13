@@ -58,11 +58,11 @@
                     <!-- display in the habit list -->
                     <div class="col s9">
                         {% if habit.category_name == "Brain" %}
-                        <strong class="red">{{ habit.category_name }}</strong>{% endif %}
-                        {% if habit.category_name == "Heart" %}
-                        <strong class="red">{{ habit.category_name }}</strong>{% endif %}
-                        {% if habit.category_name == "Body" %}
                         <strong class="blue">{{ habit.category_name }}</strong>{% endif %}
+                        {% if habit.category_name == "Heart" %}
+                        <strong class="green">{{ habit.category_name }}</strong>{% endif %}
+                        {% if habit.category_name == "Body" %}
+                        <strong class="yellow">{{ habit.category_name }}</strong>{% endif %}
                         <strong>{{ habit.habit_name }}</strong>
                         <strong>{{ habit.habit_description }}</strong><br>
                         <strong>{{ habit.due_date }}</strong>
