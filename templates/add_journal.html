@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 {% if session["user"] %}
-    <h3 class="amber-text text-darken-3 center-align"> {{ habit.habit_name }} Journal </h3>
-    <h5 class="amber-text text-darken-3  center-align"> {{ habit.habit_description }}  </h5>
+    <h2 class="amber-text text-darken-3 center-align"> {{ habit.habit_name }} Journal </h2>
+    <h4 class="amber-text text-darken-3  center-align"> {{ habit.habit_description }}  </h4>
     {% for journal in journals %}
     <label for="journal_entry_text">
-   <h4 id="journal-header">{{ journal.journal_entry_text }}</h4>
-   <h6 class="right-align"> {{ journal.date }} </h6>
+   <p id="journal-header">{{ journal.journal_entry_text }}</p>
+   <p class="right-align"> {{ journal.date }} </p>
     </label>
-    <a class="btn-floating btn-large grey darken-3 bold upper modal-trigger"
+    <a class="btn-small black-text deep-orange lighten-4 upper bold upper modal-trigger"
     href="#{{ journal._id }}">
     <span class="hide-on-small-and-down ">Delete</span>
     <i class="far fa-trash-alt"></i>
@@ -37,8 +37,9 @@
     <form class="col s12" method="POST" action="{{ url_for('add_journals', habit_id=habit._id) }}">
     <div class="row ">
         <div class="input-field col s12">
-            <textarea  class="materialize-textarea" data-length="120" name="journal_entry_text"></textarea>
+            <textarea  class="materialize-textarea" data-length="120" name="journal_entry_text" required></textarea>
             <label for="journal_entry_text">Write your journal Entry</label>
+        </div>
         </div>
         <div class="row">
             <div class="col s12 center-align">
@@ -47,7 +48,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    
     </form>
 {% endif %}
 {% endblock %}

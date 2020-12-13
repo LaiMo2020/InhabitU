@@ -2,52 +2,52 @@
 {% block content %}
 
 {% if not session["user"] %}
-<h3 class="center-align">Log In</h3>
+    <h3 class="center-align">Log In</h3>
 
-<div class="row">
-	<form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
-		<div class="card-panel">
-			<!-- username -->
-			<div class="row">
-				<div class="input-field col s12">
-					<i class="fas fa-user-plus prefix grey-text text-darken-3"></i>
-					<input id="username" name="username" type="text" minlength="5"
-                            maxlength="35"  class="validate" required>
-					<label for="username">Username</label>
-				</div>
-			</div>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
+            <div class="card-panel">
+                <!-- username -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-plus prefix grey-text text-darken-3"></i>
+                        <input id="username" name="username" type="text" minlength="5"
+                                maxlength="35"  class="validate" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
 
-			<!-- passowrd -->
-			<div class="row">
-				<div class="input-field col s12">
-					<i class="fas fa-user-lock prefix grey-text text-darken-3"></i>
-					<input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-					<label for="password">Password</label>
-				</div>
-			</div>
+                <!-- passowrd -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-lock prefix grey-text text-darken-3"></i>
+                        <input id="password" name="password" type="password" minlength="5"
+                                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
 
-			<!-- login -->
-			<div class="row">
-				<button type="submit" class="col s12 btn-large ff8f00 amber darken-3 text-shadow">
-                        Log In <i class="fas fa-sign-in-alt"></i>
-                    </button>
-			</div>
-		</div>
-	</form>
-</div>
+                <!-- login -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large ff8f00 amber darken-3 text-shadow">
+                            Log In <i class="fas fa-sign-in-alt"></i>
+                        </button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-<!-- go to register if no account exist -->
-<div class="row">
-	<div class="col s12">
-		<p class="center-align ">
-			Ready For New Adventure?
-			<a href="{{ url_for('register') }}" class=" amber-text text-darken-3">Register Account</a>
-		</p>
-	</div>
-</div>
+        <!-- go to register if no account exist -->
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align ">
+                Ready For New Adventure?
+                <a href="{{ url_for('register') }}" class=" amber-text text-darken-3">Register Account</a>
+            </p>
+        </div>
+    </div>
 
-<!-- forbid user to go to login page if he is logged in already -->
+        <!-- forbid user to go to login page if he is logged in already -->
 {% else %}
 
     <div class="col s12 center-align valign-wrapper btn-large  orange fas fa-ban">

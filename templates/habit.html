@@ -23,17 +23,17 @@
                                 class="btn-small black-text #c5e1a5 light-green lighten-3">Edit
                             </a>
 
-                            <a href="#{{ habit . _id }}" 
-                            class="btn-small black-text #ffccbc deep-orange lighten-4 upper"
-                                >
-                               Delete
-                            </a>
+                            <a class="btn-small black-text deep-orange lighten-4 upper bold upper modal-trigger"
+                                            href="#{{ habit._id }}">
+                                        <span class="hide-on-small-and-down ">Delete</span>
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
 
                             <a href="{{ url_for('add_journals', habit_id = habit . _id) }}" 
                                 class="black-text btn-small #f1f8e9 light-green lighten-5"> Journal</a>
 
                             <!-- delete modal -->
-                            <div id="{{ habit . _id }}" class="modal">
+                            <div id="{{ habit._id }}" class="modal">
                                 <div class="modal-content">
                                     <!-- confirmation of delete -->
                                     <h4 class="red-text bold upper">Confirm Deletion</h4>
@@ -64,9 +64,9 @@
                             <strong class=" category #ffcdd2 red lighten-4 z-depth-2">{{ habit.category_name }}</strong>{% endif %}
                         {% if habit.category_name == "Body" %}
                             <strong class="category #ffecb3 amber lighten-4 z-depth-2">{{ habit.category_name }}</strong>{% endif %}
-                        <strong class="category-name">{{ habit.habit_name }}</strong>
+                            <strong class="category-name">{{ habit.habit_name }}</strong>
                         {{ habit.habit_description }}<br>
-                        <strong>{{ habit.due_date }}</strong>
+                        {{ habit.due_date }}
                         {% if habit.prioritize == True %}
                             <i class="fas fa-exclamation-circle grey-text text-darken-3 tooltipped" data-position="right"
                             data-tooltip="prioritize!"></i>

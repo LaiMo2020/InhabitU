@@ -2,7 +2,7 @@
 {% block content %} 
 
 {% if session["user"] %}
-<h3 class="amber-text text-darken-3 center-align">Create New Habit</h3>
+<h1 class="amber-text text-darken-3 center-align">Create New Habit</h1>
 
 <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('create_habit') }}">
