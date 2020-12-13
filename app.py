@@ -138,9 +138,7 @@ def create_habit():
         mongo.db.habits.insert_one(habits)
         flash("Habit Successfully Created")
         return redirect(url_for("get_habits", username=session["user"]))
-
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("create_habit.html", categories=categories)
+    return render_template("create_habit.html")
 
 # edit a habit
 
@@ -165,9 +163,10 @@ def add_journals(habit_id):
 
 @app.route("/delete_journal<journal_id>")
 def delete_journal(journal_id):
+
     mongo.db.journal_entries.remove({"_id": ObjectId(journal_id)})
     flash("Journal Successfully Deleted")
-    return render_template("home.html")
+    return redirect(url_for("get_habits", username=session["user"]))
 
 
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
