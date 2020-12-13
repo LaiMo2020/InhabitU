@@ -163,6 +163,13 @@ def add_journals(habit_id):
     return render_template("add_journal.html", habit=habit, journals=journals)
 
 
+@app.route("/delete_journal<journal_id>")
+def delete_journal(journal_id):
+    mongo.db.journal_entries.remove({"_id": ObjectId(journal_id)})
+    flash("Journal Successfully Deleted")
+    return render_template("home.html")
+
+
 @app.route("/edit_habit/<habit_id>", methods=["GET", "POST"])
 def edit_habit(habit_id):
     if request.method == "POST":
