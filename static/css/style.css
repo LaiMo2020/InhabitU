@@ -60,3 +60,20 @@ hr {  height: 3px;
 .category-name{
     font-size: 20px !important;
 }
+@media screen and (max-width: 992px) {
+.category-name{
+font-size: 15px !important;
+}
+
+}
+@media screen and (max-width: 992px) {
+.category{
+font-size: 15px !important;
+}
+}
+@media screen and (max-width: 992px) {
+.category-size{
+font-size: 15px !important;
+}
+
+}
