@@ -23,14 +23,15 @@
                                         class="btn-floating btn-large grey darken-3 ">Edit 
                                     </a>
                                     <a class="btn-floating btn-large grey darken-3 bold upper modal-trigger"
-                                            href="#modal-delete-habit">
+                                            href="#{{ habit._id }}">
+                                           
                                         <span class="hide-on-small-and-down ">Delete</span>
                                         <i class="far fa-trash-alt"></i>
                                     </a>
-                                        <p>  <a href="{{ url_for('add_journals', habit_id=habit._id) }}" class="black-text darken-4"> Habit-Journal</a>
-                                        </p>  
+                                         <a href="{{ url_for('add_journals', habit_id=habit._id) }}" class="black-text darken-4  btn-small #ef6c00 orange darken-3 white-text "> Journal</a>
+                                        
                                     <!-- delete modal -->
-                                    <div id="modal-delete-habit" class="modal">
+                                    <div id="{{ habit._id }}" class="modal">
                                         <div class="modal-content">
                                         <!-- confirmation of delete -->
                                             <h4 class="red-text bold upper">Confirm Deletion</h4>
@@ -39,7 +40,7 @@
                                     </div>
                                     <div class="modal-footer center-align">
                                         <a class="waves-effect waves-purple red btn text-shadow-2 upper"
-                                                href="{{url_for('delete_habit', habit_id=habit._id)}}">
+                                                href="{{ url_for('delete_habit', habit_id=habit._id) }}">
                                                 <i class="far fa-trash-alt  right" ></i>Yes
                                         </a>
                                         <a class="modal-close waves-effect waves-yellow green btn text-shadow-2 upper">
@@ -52,6 +53,7 @@
 							</div>
                             <!-- display in the habit list -->
 							<div class="col s9">
+								<strong>{{ habit.category_name }}</strong>
 								<strong>{{ habit.habit_name }}</strong>
 								<strong>{{ habit.habit_description }}</strong><br>
 								<strong>{{ habit.due_date }}</strong>
