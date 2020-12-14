@@ -1,79 +1,78 @@
-*{
-    margin:0;
-}
 .text-shadow {
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .flashes h4 {
-  line-height: 2;
+    line-height: 2;
 }
 
 .btn-small {
-  margin: 5px;
+    margin: 5px;
 }
 
 .collapsible-header .col strong {
-  margin: 5px;
-  line-height: 42px;
+    margin: 5px;
+    line-height: 42px;
+    font-size: 1.5rem;
 }
 
 img {
-  margin-top: 10%;
+    margin-top: 10%;
 }
 
 /* floating button */
 #scale-demo {
-  position: fixed !important;
-  top: 90%;
-  right: 8%;
+    position: fixed !important;
+    top: 90%;
+    right: 8%;
 }
 
 /* message to redirect users if action is not allowed */
 div #forbiden {
-  margin-top: 50% !important;
-  display: flex;
-  justify-content: center;
+    margin-top: 50% !important;
+    display: flex;
+    justify-content: center;
 }
 
 /* margin for logo */
 nav .brand-logo {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
-#motivation-message{
-
-     line-height: 200% !important;
+#motivation-message {
+    line-height: 200% !important;
+    font-size: 1.1rem;
+    color: #033;
 }
+
 #display-habit {
-  margin-bottom: 15%;
+    margin-bottom: 15%;
 }
-hr {  height: 3px;
-    border: 0; border-top: 3px solid orange;
-    margin-bottom: 5em ; 
+
+/* spacing between jornal entries */
+hr {
+    height: 3px;
+    border: 0;
+    border-top: 3px solid orange;
+    margin-bottom: 5em;
     margin-top: 1em;
 }
 
-#journal-header{
+.category {
+    font-size: 1.1rem !important;
+    border-radius: 15px;
+    padding: 0.2rem;
+}
 
-   margin-top: 120px !important;
+#journal-header {
+    margin-top: 120px !important;
+    font-size: 1.1rem;
+    color: #033;
 }
-.category{
-    font-size: 25px !important;
-    padding: 1% 4% 1% 4%;
-}
-.category-name{
-    font-size: 20px !important;
-}
+
+
 @media screen and (max-width: 992px) {
-.category-name{
-font-size: 15px !important;
+    .category-name {
+        font-size: 15px !important;
+    }
 }
-
-}
-@media screen and (max-width: 992px) {
-.category{
-font-size: 15px !important;
-}
-}
-

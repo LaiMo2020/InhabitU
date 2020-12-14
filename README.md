@@ -23,6 +23,8 @@
 
   - [Register](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.register.png)
  - [Create Habit](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop.create.png)
+ - [Habits](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop-habits.png)
+ - [Journal-Entry](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/desktop-journal-entry.png)
 
 
 
@@ -33,6 +35,8 @@
 
   - [Register](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.register.png)
  - [Create Habit](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile.create%20copy.png)
+ - [Habits](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile-habits.png)
+ - [Journal-Entry](https://github.com/LaiMo2020/InhabitU/blob/master/static/wireframe/mobile-journal-entry.png)
 
 ## User stories
 - As a user I want to create and edit an overview of my habits, so that I can store and return to my created habit-lists.

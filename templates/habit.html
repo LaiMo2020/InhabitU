@@ -15,12 +15,15 @@
             {% for habit in habits %}
             <li>
                 <div class="collection collapsible-header fffff black-text darken-4 text-shadow3 ">
-                    <div class="col s3">
+                    <div class=" s12 m6 l3">
                         <!-- when the user is loggedin -->
                         {% if session.user|lower == habit.created_by|lower %}
-
+                                 
                             <a href="{{ url_for('edit_habit', habit_id = habit . _id) }}" id="category-size"
+                            
                                 class="btn-small black-text #c5e1a5 light-green lighten-3">Edit
+                                
+
                             </a>
 
                             <a class="btn-small black-text deep-orange lighten-4 upper bold upper modal-trigger "
@@ -57,7 +60,7 @@
 
                     </div>
                     <!-- display in the habit list -->
-                    <div class="col s9 offset-m1 .m">
+                    <div class="col s9 offset-m1 .m ">
                         <!-- give different bg color for each category -->
                         {% if habit.category_name == "Brain" %}
                             <strong class=" category #bbdefb blue lighten-4 z-depth-2">{{ habit.category_name }}</strong>{% endif %}
@@ -65,7 +68,7 @@
                             <strong class=" category #ffcdd2 red lighten-4 z-depth-2">{{ habit.category_name }}</strong>{% endif %}
                         {% if habit.category_name == "Body" %}
                             <strong class="category #ffecb3 amber lighten-4 z-depth-2">{{ habit.category_name }}</strong>{% endif %}
-                            <strong class="category-name">{{ habit.habit_name }}</strong>
+                            <strong class="category-name">{{ habit.habit_name }}</strong><br>
                         {{ habit.habit_description }}<br>
                         {{ habit.due_date }}
                         {% if habit.prioritize == True %}
