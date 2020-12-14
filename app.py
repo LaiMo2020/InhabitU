@@ -169,7 +169,7 @@ def create_habit():
 @app.route("/add_journals/<habit_id>", methods=["GET", "POST"])
 def add_journals(habit_id):
     """
-    add journal entry page view, user can add daily notes to his journal
+    journal entry page view, user can add daily notes to his journal
     eg: follow up his performance in each habit.
     the jouranl id is connecting with the habit id
     """
