@@ -15,7 +15,7 @@
             {% for habit in habits %}
             <li>
                 <div class="collection collapsible-header fffff black-text darken-4 text-shadow3 ">
-                    <div class=" s12 m6 l3">
+                    <div class="col s3 s12 m6 l3">
                         <!-- when the user is loggedin -->
                         {% if session.user|lower == habit.created_by|lower %}
                                  
@@ -56,6 +56,7 @@
                                 </div>
 
                             </div>
+                            
                         {% endif %}
 
                     </div>
@@ -77,10 +78,11 @@
                     </div>
 
                     {% endif %}
-            {% endfor %}
-                </div>
+                 </div>
             </li>
-        </ul>
+        
+            {% endfor %}
+       </ul>
     </div>
 </div>
 {% endblock %}
