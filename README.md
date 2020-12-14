@@ -198,6 +198,8 @@ cross-platform document-oriented database/ NOSQL
 - [vlaidator/screnshoot/Login-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/login-html.png)
 - [vlaidator/screnshoot/Register-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/register-html.png)
 - [vlaidator/screnshoot/Home-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/home-html.png)
+- [vlaidator/screnshoot/Habit-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/habit-html.png)
+- [vlaidator/screnshoot/Journal-HTML](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/journal-html.png)
 
 - [vlaidator/screnshoot/CSS](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/CSS-vlaidation.png)
 - [vlaidator/screnshoot/JS](https://github.com/LaiMo2020/InhabitU/blob/master/static/Validation/JS%20validation.png)
