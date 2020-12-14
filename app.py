@@ -1,5 +1,4 @@
 """
-*** Module docstring: ***
 Inspired some code were copied/edited the mini project task manager.
 """
 
@@ -138,7 +137,9 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie, tell them they are looged out
+    """
+    remove user from session cookie, tell them they are looged out
+    """
     session.pop("user")
     flash("You have been logged out")
     return redirect(url_for("login"))
