@@ -4,6 +4,7 @@
 ![https://github.com/LaiMo2020/InhabitU/blob/master/static/images/presentation-page.png](static/images/presentation-page.png)
 ## InhabitU
 #### InhabitU is an application to facilitate and keep track on a balanced lifestyle. Options to create, edit and keep track on frequent habits in the three categories “Heart”, “Body” and “Brain” make it easy to stay motivated and keep an overview over how well we balance and spend time in the three categories.
+The app URL is : https://inhabitu-flask-app.herokuapp.com/
 
 
 ## UX
