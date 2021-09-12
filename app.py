@@ -1,6 +1,3 @@
-"""
-Inspired some code were copied/edited the mini project task manager.
-"""
 
 import os
 from flask import (
